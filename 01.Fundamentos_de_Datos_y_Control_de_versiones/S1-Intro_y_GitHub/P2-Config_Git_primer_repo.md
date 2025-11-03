@@ -18,7 +18,7 @@ git config --global user.email "tu.email@ejemplo.com"
 git config --global core.editor "code --wait"  # Para VS Code
 git config --global init.defaultBranch main
 ```
-Esta configuración ya la había hecho previamente, por lo que usaré otros comandos para verificar las configuraciones existentes:
+Esta configuración ya la había hecho previamente, por lo que usaré comandos para verificar las configuraciones existentes:
 
 ## Verificación de configuración
 
@@ -33,6 +33,8 @@ git config --global --get init.defaultBranch
 ## Crear primer repositorio
 
 ```
+mkdir mi-primer-repo
+cd mi-primer-repo
 git init
 echo "# Mi primer repositorio" > README.md
 git status
@@ -44,7 +46,7 @@ git log --oneline
 
 ## Verificación
 
-``git satuts:`` muestra qué cambió y si hay o no cambios pendientes.
+``git satuts:`` muestra qué archivos han sido modificados, preparados, o si ya están listos para un commit.
 
 ``git add README.md:`` agrega el archivo al área de staging.
 
@@ -54,7 +56,7 @@ git log --oneline
 
 ``cat README.md:`` verifica el contenido del archivo.
 
-![Mi-primer-repo](primer-repositorio.PNG)
-![verificar-contenido](contenido-readme.PNG)
+![Mi-primer-repo](primer_repositorio.PNG)
+![verificar-contenido](contenido_readme.PNG)
 
 
