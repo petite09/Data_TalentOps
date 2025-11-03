@@ -14,8 +14,7 @@ En este contexto, este repositorio reúne, procesa y publica datos sobre la pand
 El historial tiene 31.320 commits.
 
 - ¿Cuántas ramas hay?
-El repositorio tiene 16 ramas, entre las que se incluyen la principal (`main`)
- y otras destinadas al mantenimiento y mejora de componentes específicos del pipeline, como `vaccinations`, `testing-data`, `data-validation` y `ci-tests`. Esta ramas permiten desarrollar, probar y depurar procesos de automatización.
+El repositorio tiene 16 ramas.
 
 - ¿Cuándo fue el último commit?
 El último commit fue el 23 de Agosto de 2024.
