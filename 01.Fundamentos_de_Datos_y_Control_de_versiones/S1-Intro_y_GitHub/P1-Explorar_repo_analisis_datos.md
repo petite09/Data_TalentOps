@@ -34,15 +34,15 @@ Describe dos directorios principales:
     - `public/data`: contiene los datasets finales. Dirigido a quienes estén interesados en el uso y análisis de los datos.
     - `scripts`: Contiene todo el código y los archivos intermedios necesarios para generar el conjunto de datos finales. Dirigido principalmente a contribuidores y desarrolladores.
 
-    También ha un enlace para dirigirse al dataset final y otro para tener más información sobre la documentación técnica.
+    También hay un enlace para dirigirse al dataset final y otro para tener más información sobre la documentación técnica.
 
 - ¿Están los datos separados del código?
-Sí. Se puede ver que en el archivo README.md tienen un apartado donde se describen dos directorios separados: el de datos (`public/data`) y el de código (`scripts`).
+Sí. Se puede ver que en el archivo README.md hay un apartado donde se describen dos directorios separados: el de datos (`public/data`) y el de código (`scripts`).
 
 - ¿Hay scripts de automatización?
 Sí. El repositorio incluye scripts de automatización en distintos niveles, algunos ejemplos son:
     - La carpeta `.github/workflows/` contiene un archivo encargado de automatizar la sincronización de los datos procesados hacia un almacenamiento en la nube.
-    - Por ejemplo, el archivo `scripts/cases_deaths.py` se encarga de generar el dataset combinado de casos y muertes, como parte del flujo de transformación de datos. Este archivo carga la tabla `cases_deaths` desde el catálogo ETL, aplica transformaciones y exporta un archivo consolidado y salidas en formato "wide" (una por indicador), además de un timestamp de actualización.
+    - Por ejemplo, el archivo `scripts/cases_deaths.py` se encarga de generar el dataset combinado de casos y muertes, como parte del flujo de transformación de datos. 
     - El usuario owidbot (que tiene la mayor cantidad de commits) actúa como agente automatizado que ejecuta procesos y los publica en el repositorio.
 
 Cabe destacar que, según la sección **Discussions** del repositorio, el proyecto dejó de recibir actualizaciones directas desde el 19 de agosto de 2024, debido a la migración de los datos al nuevo sistema ETL de Our World in Data (centralizado). Este cambio refleja una evolución en la gestión del pipeline de datos, pasando de un proceso basado en GitHub a una infraestructura automatizada y escalable que centraliza la extracción, transformación y carga de información. Aun así, el repositorio se mantiene disponible como archivo histórico y referencia pública del trabajo realizado durante la pandemia.
