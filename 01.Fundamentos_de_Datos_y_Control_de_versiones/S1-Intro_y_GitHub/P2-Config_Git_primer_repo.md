@@ -7,7 +7,7 @@ Instalar git y verificar version:
 git --version
 ```
 
-![Version_Git](Version_git.png)
+![Version_Git](Version_git.PNG)
 
 
 ## Configuración inicial
@@ -28,7 +28,7 @@ git config --global --get user.email
 git config --global --get core.editor
 git config --global --get init.defaultBranch
 ```
-![configuración_inicial](config_inicial_git.png)
+![configuración_inicial](config_inicial_git.PNG)
 
 ## Crear primer repositorio
 
@@ -55,6 +55,6 @@ git log --oneline
 ``cat README.md:`` verifica el contenido del archivo.
 
 ![Mi-primer-repo](primer-repositorio.PNG)
-![verificar-contenido](contenido-readme.png)
+![verificar-contenido](contenido-readme.PNG)
 
 
