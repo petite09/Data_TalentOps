@@ -50,7 +50,7 @@ git log --oneline
 
 ``git add README.md:`` agrega el archivo al área de staging.
 
-``git commit -m ...:`` guarda ese cambio en el historial del repositorio.
+``git commit -m ...:`` guarda ese cambio en el historial del repositorio. Guarda una versión del proyecto en un momento específico.
 
 ``git log --oneline:`` muestra el historial en una línea por commit.
 
