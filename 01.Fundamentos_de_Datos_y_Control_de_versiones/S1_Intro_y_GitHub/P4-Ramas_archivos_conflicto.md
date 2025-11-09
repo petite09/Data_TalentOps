@@ -155,7 +155,7 @@ Hacemos click en **Compare & pull request** y agregamos título y descripción.
 Luego hacemos click en **create pull request** y visualizamos el PR.
 ![visualizacion_pr](visualizacion_pr.PNG)
 
-Se añade el *commit message*. 
+Se añade el *commit message*.
 ![commit_message](commit_mensaje.PNG)
 
 Y finalmente se confirma el merge.
