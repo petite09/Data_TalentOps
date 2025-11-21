@@ -1,5 +1,15 @@
 # Análisis agregado de datos de ventas
 
+> [!IMPORTANT]  
+> Se requiere la base de datos SQLite con esquema (completo, clientes, pedidos, productos, detalle_pedidos).
+
+En este caso se trabajó con los ejemplos de tablas de los días anteriores.
+
+- Tabla clientes y pedidos: [Actividad práctica día 2](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P2-Consultas-bbdd.md)
+ 
+ - Tabla productos: [Actividad práctica día 3](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P3-Consultas-joins.md)
+
+
 ## Crear tabla de detalles de pedidos:
 
 ```
@@ -24,15 +34,6 @@ INSERT INTO detalle_pedidos VALUES
 ```
 
 ![detalle_pedidos](sqlite28.PNG)
-
-> [!IMPORTANT]  
-> Se requiere la base de datos SQLite con esquema (completo, clientes, pedidos, productos, detalle_pedidos).
-
-En este caso se trabajó con los ejemplos de tablas de los días anteriores.
-
-- Tabla clientes y pedidos: [Actividad práctica día 2](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P2-Consultas-bbdd.md)
- 
- - Tabla productos: [Actividad práctica día 3](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P3-Consultas-joins.md)
 
 Podemos verificar las tablas de nuestra base de datos usando ``.tables``
 
