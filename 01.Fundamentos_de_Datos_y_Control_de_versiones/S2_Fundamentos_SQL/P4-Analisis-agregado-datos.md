@@ -36,7 +36,7 @@ En este caso se trabajó con los ejemplos de tablas de los días anteriores.
 
 Podemos verificar las tablas de nuestra base de datos usando ``.tables``
 
-
+![tablas_bbdd](sqlite29.PNG)
 
 
 ## Consultas de agregación básica:
