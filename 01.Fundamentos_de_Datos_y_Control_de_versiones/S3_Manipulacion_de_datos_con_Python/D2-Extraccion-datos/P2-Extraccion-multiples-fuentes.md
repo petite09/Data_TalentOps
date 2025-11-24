@@ -1,6 +1,11 @@
 # Extracción desde múltiples fuentes heterogéneas
 
+> [!NOTE]  
+> Se usó la misma carpeta de la Actividad Práctica 1: ``practica_python`` y en esta se crearon  los diferentes scripts.
+
 ## Crear datos de ejemplo en diferentes formatos:
+
+Para esto se creó el archivo [crear-datos.py](crear-datos.py):
 
 ```
 import pandas as pd
@@ -46,25 +51,60 @@ pedidos_df.to_sql('pedidos', conn, index=False, if_exists='replace')
 conn.close()
 ```
 
+![crear-datos](IMG-P2/01-crear-datos.PNG)
+
+Al ejecutarlo el archivo ``crear-datos.py``, se crearon 4 archivos:
+- ``datos.xlsx``
+- ``productos.json``
+- ``ventas.csv``
+- ``ventas.db``
+
+> [!NOTE]  
+> Los archivos ``test_analisis.py`` y ``primer_grafico.png`` son archivos de la Actividad Práctica 1 del día anterior. 
+
+
 ## Extraer desde cada fuente:
+
+Se creó un archivo llamado [extraer-datos.py](extraer-datos.py) con todos los bloques de código para extraer los datos de las distintas fuentes en un solo script. 
 
 ```
 # Desde CSV
 df_csv = pd.read_csv('ventas.csv')
 print("Desde CSV:")
 print(df_csv.head())
+```
 
+DataFrame entregado:
+
+![desde-csv](IMG-P2/02-csv.PNG)
+
+```
 # Desde Excel (hoja específica)
 df_excel_ventas = pd.read_excel('datos.xlsx', sheet_name='Ventas')
 df_excel_clientes = pd.read_excel('datos.xlsx', sheet_name='Clientes')
 print("\nDesde Excel - Ventas:")
 print(df_excel_ventas.head())
+```
 
+> [!IMPORTANT]  
+> Es necesario instalar openpyxl: ``pip install openpyxl``.
+
+DataFrame entregado:
+
+![desde-excel](IMG-P2/03-excel.PNG)
+
+```
 # Desde JSON
 df_json = pd.read_json('productos.json')
 print("\nDesde JSON:")
 print(df_json)
+``` 
 
+DataFrame entregado:
+
+![desde-json](IMG-P2/04-json.PNG)
+
+```
 # Desde SQLite
 conn = sqlite3.connect('ventas.db')
 df_sql = pd.read_sql('SELECT * FROM pedidos', conn)
@@ -73,7 +113,14 @@ print("\nDesde SQLite:")
 print(df_sql)
 ```
 
+DataFrame entregado:
+
+![desde-sqlite](IMG-P2/05-sqlite.PNG)
+
+
 ## API simulada (usando requests si está disponible):
+
+Se creó el archivo [simular-api.py](simular-api.py) con el siguiente código:
 
 ```
 # Simular API response
@@ -91,12 +138,21 @@ df_api = pd.DataFrame(api_response['data'])
 print("\nDesde API simulada:")
 print(df_api)
 ```
+DataFrame entregado:
 
-Verificación: Confirma que todos los métodos de extracción funcionan correctamente y producen DataFrames consistentes.
+![desde-api-simulada](IMG-P2/06-api-simulada.PNG)
 
-Requerimientos:
+Se confirma que todos los métodos de extracción funcionan correctamente y producen DataFrames consistentes ✅.
+
+
+### Requerimientos:
+
 Python con Pandas instalado
+
 requests (opcional para APIs): pip install requests
+
 openpyxl (para Excel): pip install openpyxl
+
 SQLite incluido en Python estándar
+
 Archivos de ejemplo o acceso a bases de datos
