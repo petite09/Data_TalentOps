@@ -138,11 +138,18 @@ df_api = pd.DataFrame(api_response['data'])
 print("\nDesde API simulada:")
 print(df_api)
 ```
+
 DataFrame entregado:
 
-![desde-api-simulada](IMG-P2/06-api-simulada.PNG)
+![api-simulada](IMG-P2/06-api-simulada.PNG)
 
-Se confirma que todos los métodos de extracción funcionan correctamente y producen DataFrames consistentes ✅.
+La idea es practicar cómo trabajar con datos que vienen de una API (normalmente en formato JSON), pero sin llamar realmente a un servidor externo (se simula la respuesta de la API). En un proyecto real, muchas veces hay que traer datos desde una API REST:
+
+- Se hace un requests.get ("https:/api.loquequeramos.com/endpoint").
+- La API devuelve un JSON.
+- Se convierte ese JSON en un DataFrame de pandas para analizarlo.
+
+Finalmente, se confirma que todos los métodos de extracción funcionan correctamente y producen DataFrames consistentes ✅.
 
 
 ### Requerimientos:
