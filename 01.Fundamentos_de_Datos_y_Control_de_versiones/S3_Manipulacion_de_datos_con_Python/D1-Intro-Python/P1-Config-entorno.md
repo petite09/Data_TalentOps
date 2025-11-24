@@ -111,8 +111,6 @@ El script se ejecutó sin errores y se generó el siguiente gráfico que se guar
 ![alt text](IMG-P1/11-primer-grafico.png)
 
 
-Verificación: Confirma que todas las bibliotecas se instalaron correctamente, el script se ejecutó sin errores, y se generó el archivo de imagen.
-
 Requerimientos:
 Sistema operativo: Windows, macOS, o Linux
 Conexión a internet para descargar paquetes
