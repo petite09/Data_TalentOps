@@ -51,13 +51,13 @@ pedidos_df.to_sql('pedidos', conn, index=False, if_exists='replace')
 conn.close()
 ```
 
-![crear-datos](IMG-P2/01-crear-datos.PNG)
-
-Al ejecutarlo el archivo ``crear-datos.py``, se crearon 4 archivos:
+Al ejecutar el archivo ``crear-datos.py``, se crearon 4 archivos:
 - ``datos.xlsx``
 - ``productos.json``
 - ``ventas.csv``
 - ``ventas.db``
+
+![crear-datos](IMG-P2/01-crear-datos.PNG)
 
 > [!NOTE]  
 > Los archivos ``test_analisis.py`` y ``primer_grafico.png`` son archivos de la Actividad Práctica 1 del día anterior. 
@@ -87,7 +87,7 @@ print(df_excel_ventas.head())
 ```
 
 > [!IMPORTANT]  
-> Es necesario instalar openpyxl: ``pip install openpyxl``.
+> Para excel es necesario instalar openpyxl: ``pip install openpyxl``.
 
 DataFrame entregado:
 
