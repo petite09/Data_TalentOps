@@ -6,7 +6,7 @@
 # Crear base de datos de ejemplo
 sqlite3 .open tienda_ejemplo.db
 ```
-![terminal-sqlite3](IMG-P1/sqlite01.PNG)
+![terminal-sqlite3](IMG-P1/sqlite01.png)
 
 ## Crear Esquema Básico:
 
@@ -39,11 +39,11 @@ CREATE TABLE pedidos (
 ```
 Crear Tabla clientes:
 
-![crear-bbdd](IMG-P1/sqlite02.PNG)
+![crear-bbdd](IMG-P1/sqlite02.png)
 
 Crear Tabla productos y tabla pedidos:
 
-![tablas_productos_pedidos](IMG-P1/sqlite03.PNG)
+![tablas_productos_pedidos](IMG-P1/sqlite03.png)
 
 Una vez que tenemos las 3 tablas creadas, se procede a explorar la estructura de la base de datos.
 
@@ -68,9 +68,9 @@ PRAGMA table_info(clientes);
 ``.PRAGMA table_info()`` muestra un resumen estructurado de las columnas de la tabla. Sirve para ver información columna por columna, identificar los campos NOT NULL, confirmar la clave primaria (pk = 1), ver valores por defecto y ver tipos de datos procesados. 
 
 
-![tablas](IMG-P1/sqlite04.PNG)
+![tablas](IMG-P1/sqlite04.png)
 
-![pragma_clientes](IMG-P1/sqlite05.PNG)
+![pragma_clientes](IMG-P1/sqlite05.png)
 
 En este caso, al usar ``PRAGMA table_info`` la primera columna indica el índice interno de la columna:
 ```
@@ -106,9 +106,9 @@ PRAGMA table_info(productos);
 .schema pedidos
 PRAGMA table_info(pedidos);
 ```
-![info_tabla_pedidos](IMG-P1/sqlite07.PNG)
+![info_tabla_pedidos](IMG-P1/sqlite07.png)
 
-![info_tabla_productos](IMG-P1/sqlite06.PNG)
+![info_tabla_productos](IMG-P1/sqlite06.png)
 
 
 ## Analizar de Constraints:
