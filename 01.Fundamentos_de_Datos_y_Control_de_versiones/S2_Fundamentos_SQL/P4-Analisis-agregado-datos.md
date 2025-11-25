@@ -33,11 +33,11 @@ INSERT INTO detalle_pedidos VALUES
 (5, 3, 5, 1, 149.50);
 ```
 
-![detalle_pedidos](sqlite28.PNG)
+![detalle_pedidos](IMG-P4/sqlite28.PNG)
 
 Podemos verificar las tablas de nuestra base de datos usando ``.tables``
 
-![tablas_bbdd](sqlite29.PNG)
+![tablas_bbdd](IMG-P4/sqlite29.PNG)
 
 
 ## Consultas de agregación básica:
@@ -48,7 +48,7 @@ SELECT producto_id, SUM(cantidad) as total_vendido, SUM(cantidad * precio_unitar
 FROM detalle_pedidos
 GROUP BY producto_id;
 ```
-![agregacion_basica](sqlite30.PNG)
+![agregacion_basica](IMG-P4/sqlite30.PNG)
 
 En este caso se observan 3 columnas: ``producto_id``, ``total_vendido`` e ``ingresos_totales``. Donde ``total_vendido`` e ``ingresos_totales`` contienen la función agregada SUM().
 El resultado de la consulta también muestra 5 registros en total, correspondiente a la cantidad de productos.
@@ -59,7 +59,7 @@ SELECT pedido_id, COUNT(*) as items_diferentes, SUM(cantidad) as cantidad_total,
 FROM detalle_pedidos
 GROUP BY pedido_id;
 ```
-![estadistica_pedido](sqlite31.PNG)
+![estadistica_pedido](IMG-P4/sqlite31.PNG)
 
 Acá se observan 4 columnas: 
 
@@ -85,7 +85,7 @@ FROM detalle_pedidos
 GROUP BY producto_id
 HAVING SUM(cantidad) > 1;
 ```
-![HAVING](sqlite32.PNG)
+![HAVING](IMG-P4/sqlite32.PNG)
 
 Se observa que la consulta entrega 2 columnas: 
 - ``producto_id``
@@ -93,7 +93,7 @@ Se observa que la consulta entrega 2 columnas:
 
 El ``HAVING`` nos permite filtrar resultados después de la agregación. En este caso agrupamos por ``producto_id`` y dentro de estos productos se pide que nos muestre aquellos cuyo ``total_vendido`` (``SUM(cantidad)``) sea mayor a 1: (``HAVING SUM(cantidad) > 1``), por lo que el resultado de la columna es solo 1 registro que cumple con ese criterio.
 
-![producto_2](sqlite33.PNG)
+![producto_2](IMG-P4/sqlite33.PNG)
 
 El producto id = 2 corresponde al Mouse Logitech, que se vendió más de una unidad (2 unidades).
 
@@ -104,7 +104,7 @@ FROM detalle_pedidos
 GROUP BY pedido_id
 HAVING SUM(cantidad * precio_unitario) > 150;
 ```
-![valor_sobre_150](sqlite34.PNG)
+![valor_sobre_150](IMG-P4/sqlite34.PNG)
 
 En este ejemplo podemos observar que la consulta entrega 2 columnas:
 - ``pedido_id``
@@ -145,4 +145,4 @@ El ``GROUP BY`` agrupa la información por ciudad, permitiendo calcular correcta
 
 Se observan 2 registros correspondientes a las 2 ciudades ``'Barcelona'`` y ``'Madrid'`` que son aquellas que cumplen con la condición del ``HAVING``.
 
-![ventas_ciudad](sqlite35.PNG)
+![ventas_ciudad](IMG-P4/sqlite35.PNG)

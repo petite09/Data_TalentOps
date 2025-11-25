@@ -32,13 +32,13 @@ INSERT INTO pedidos VALUES
 (3, 2, '2024-01-18', 299.99);
 ```
 
-![crear_poblar_tablas](sqlite23.PNG)
+![crear_poblar_tablas](IMG-P3/sqlite23.PNG)
 
 Se usó ``.tables`` para verificar las tablas que creamos y se observan 2 tablas: ``clientes`` y ``pedidos``.
 
 Con la consulta ``SELECT * FROM + 'nombre tabla'`` podemos ver todos los registros de la tabla y verificar que la inserción de datos fue exitosa.
 
-![verificacion_contenido](sqlite24.PNG)
+![verificacion_contenido](IMG-P3/sqlite24.PNG)
 
 
 
@@ -52,7 +52,7 @@ FROM clientes c
 INNER JOIN pedidos p ON c.id = p.cliente_id;
 ```
 
-![INNER_JOIN](sqlite25.PNG)
+![INNER_JOIN](IMG-P3/sqlite25.PNG)
 
 ``c.nombre`` viene de la tabla clientes, alias c.
 ``p.fecha_pedido`` y ``p.total`` vienen de la tabla pedidos, alias p.
@@ -78,7 +78,7 @@ LEFT JOIN pedidos p ON c.id = p.cliente_id
 GROUP BY c.id, c.nombre;
 ```
 
-![LEFT_JOIN](sqlite26.PNG)
+![LEFT_JOIN](IMG-P3/sqlite26.PNG)
 
 ``c.nombre`` viene de la tabla clientes, alias c.
 ``COUNT(p.id)`` es el recuento de id's de la tabla pedidos, y este recuento corresponde al número de pedidos (``num_pedidos``). Si un cliente no tiene pedidos, en este caso al hacer un LEFT JOIN, este valor será 0.
@@ -115,7 +115,7 @@ LEFT JOIN pedidos p ON c.id = p.cliente_id
 WHERE c.ciudad = 'Madrid';
 ```
 
-![LEFT_JOIN2](sqlite27.PNG)
+![LEFT_JOIN2](IMG-P3/sqlite27.PNG)
 
 ``c.nombre`` y ``c.ciudad`` viene de la tabla clientes, alias c.
 ``p.fecha_pedido`` y ``p.total`` vienen de la tabla pedidos, alias p.

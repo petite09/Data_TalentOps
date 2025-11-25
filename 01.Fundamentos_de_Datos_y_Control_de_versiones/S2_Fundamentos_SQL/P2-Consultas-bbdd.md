@@ -22,11 +22,11 @@ INSERT INTO productos VALUES
 
 En la terminal se observa lo siguiente:
 
-![crear_poblar](sqlite08.PNG)
+![crear_poblar](IMG-P2/sqlite08.PNG)
 
 Para verificar el contenido de la tabla creada con los registros ingresados se utilizó: ``SELECT * FROM productos;``
 
-![verificar_contenido](sqlite09.PNG)
+![verificar_contenido](IMG-P2/sqlite09.PNG)
 
 
 ## Consultas básicas
@@ -38,7 +38,7 @@ A continuación, se presentan las consultas realizadas con la evidencia respecti
 SELECT nombre, precio FROM productos WHERE precio > 100;
 ```
 
-![sqlite10](sqlite10.PNG)
+![sqlite10](IMG-P2/sqlite10.PNG)
 
 ```
 -- Productos de categoría 'Electrónica' ordenados por precio descendente
@@ -47,7 +47,7 @@ WHERE categoria = 'Electrónica'
 ORDER BY precio DESC;
 ```
 
-![sqlite11](sqlite11.PNG)
+![sqlite11](IMG-P2/sqlite11.PNG)
 
 ```
 -- Productos con stock entre 10 y 40, ordenados por stock ascendente
@@ -56,7 +56,7 @@ WHERE stock BETWEEN 10 AND 40
 ORDER BY stock ASC;
 ```
 
-![sqlite12](sqlite12.PNG)
+![sqlite12](IMG-P2/sqlite12.PNG)
 
 ```
 -- Nombres que contienen 'a' ordenados alfabéticamente
@@ -65,7 +65,7 @@ WHERE nombre LIKE '%a%'
 ORDER BY nombre ASC;
 ```
 
-![sqlite13](sqlite13.PNG)
+![sqlite13](IMG-P2/sqlite13.PNG)
 
 ## Experimentar variaciones: 
 
@@ -77,7 +77,7 @@ ORDER BY nombre ASC;
     WHERE precio < 100;
     ```
 
-    ![sqlite14](sqlite14.PNG)
+    ![sqlite14](IMG-P2/sqlite14.PNG)
 
     ```
     -- Productos cuya categoría no sea 'Accesorios', mostrando nombre y categoría
@@ -85,7 +85,7 @@ ORDER BY nombre ASC;
     WHERE categoria <> 'Accesorios';
     ```
 
-    ![sqlite15](sqlite15.PNG)
+    ![sqlite15](IMG-P2/sqlite15.PNG)
 
     ```
     -- Productos cuyo stock esté fuera del rango 20-40 (menor que 20 o mayor que 40)
@@ -93,7 +93,7 @@ ORDER BY nombre ASC;
     WHERE stock < 20 OR stock > 40;
     ```
 
-    ![sqlite16](sqlite16.PNG)
+    ![sqlite16](IMG-P2/sqlite16.PNG)
 
 
 2. Probar diferentes columnas en ORDER BY
@@ -104,7 +104,7 @@ ORDER BY nombre ASC;
     ORDER BY nombre DESC;
     ```
 
-    ![sqlite17](sqlite17.PNG)
+    ![sqlite17](IMG-P2/sqlite17.PNG)
 
     ```
     -- Mostrar todos los productos ordenados por stock de mayor a menor
@@ -112,7 +112,7 @@ ORDER BY nombre ASC;
     ORDER BY stock DESC;
     ```
 
-    ![sqlite18](sqlite18.PNG)
+    ![sqlite18](IMG-P2/sqlite18.PNG)
 
     ```
     -- Listar productos ordenados primero por categoría ascendente, y dentro de cada categoría por precio ascendente
@@ -120,7 +120,7 @@ ORDER BY nombre ASC;
     ORDER BY categoria ASC, precio ASC;
     ```
 
-    ![sqlite19](sqlite19.PNG)
+    ![sqlite19](IMG-P2/sqlite19.PNG)
 
 3. Cominar múltiples condiciones con AND/OR
 
@@ -130,18 +130,18 @@ ORDER BY nombre ASC;
     WHERE categoria = 'Accesorios' AND precio > 50;
     ```
 
-    ![sqlite20](sqlite20.PNG)
+    ![sqlite20](IMG-P2/sqlite20.PNG)
 
     ```
     -- Listar productos que sean de la categoría 'Electrónica' o que tengan un precio mayor a 150.
     SELECT * FROM productos
     WHERE categoria = 'Electrónica' OR precio > 150;
     ```
-    ![sqlite21](sqlite21.PNG)
+    ![sqlite21](IMG-P2/sqlite21.PNG)
 
     ```
     -- Buscar productos cuyo nombre contenga la letra "o" y cuyo stock sea mayor a 20.
     SELECT * FROM productos
     WHERE nombre LIKE '%o%' AND stock > 20;
     ```
-    ![sqlite22](sqlite22.PNG)
+    ![sqlite22](IMG-P2/sqlite22.PNG)

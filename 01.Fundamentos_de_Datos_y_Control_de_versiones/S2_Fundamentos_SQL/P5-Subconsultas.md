@@ -31,7 +31,7 @@ INSERT INTO categorias VALUES
 (3, 'Audio', 'Productos de audio y sonido');
 ```
 
-![crear_tabla_categoria](sqlite36.PNG)
+![crear_tabla_categoria](IMG-P5/sqlite36.PNG)
 
 Antes la tabla ``productos`` tenía la columna ``categoria TEXT``. Pero en esta actividad se está "normalizando" el modelo, creando una nueva tabla llamada ``categorias``.
 
@@ -42,7 +42,7 @@ Entonces, ahora cada producto de la tabla ``productos`` tiene un campo llamado `
 
 Podemos verificar las tablas de nuestra base de datos usando ``.tables``
 
-![verificar_tablas](sqlite37.PNG)
+![verificar_tablas](IMG-P5/sqlite37.PNG)
 
 
 ```
@@ -51,7 +51,7 @@ UPDATE productos SET categoria_id = 2 WHERE nombre LIKE '%Mouse%' OR nombre LIKE
 UPDATE productos SET categoria_id = 3 WHERE nombre LIKE '%Audífonos%';
 ```
 
-![UPDATE](sqlite38.PNG)
+![UPDATE](IMG-P5/sqlite38.PNG)
 
 Como se acaba de agregar la columna ``categoria_id``, esa columna está vacía para todos los productos. Por lo tanto, es necesario usar ``UPDATE`` para rellenar esa columna ("actualizarla"), según el tipo de producto.
 
@@ -63,7 +63,7 @@ En la segunda actualización se está pidiendo que todos aquellos productos cuyo
 
  Ahora si queremos ver la tabla productos actualizada con sus respectivas categorías, podemos hacer la siguiente consulta ``SELECT * FROM productos;``
 
-![tabla_actualizada](sqlite39.PNG)
+![tabla_actualizada](IMG-P5/sqlite39.PNG)
 
 
 ## Subconsultas en WHERE:
@@ -113,7 +113,7 @@ La consulta externa filtra clientes usando esos resultados.
 Es como pedir: Muestra todos los clientes cuyo ID esté en esta lista de clientes que compraron productos de "Electrónica".
 
 
-![consulta_WHERE_1](sqlite40.PNG)
+![consulta_WHERE_1](IMG-P5/sqlite40.PNG)
 
 ---
 ```
@@ -157,7 +157,7 @@ Esta parte filtra productos cuyos precios sean mayores qué: y aquí entra la su
 
 Finalmente la consulta completa solicita lo siguiente: para este producto, dame el promedio de su categoría y solo muéstralo si su precio está por encima de ese promedio.
 
-![consulta_WHERE_2](sqlite41.PNG)
+![consulta_WHERE_2](IMG-P5/sqlite41.PNG)
 
 En este caso se observa que *Lapto Dell* tiene un precio de 1200, valor que es mayor al promedio de su categoría que es 699.995 (Electrónica) y *Teclado Mecánico* cuyo precio es 89.99, valor que es mayor al promedio de su categoría que es 57.745 (Accesorios).
 
@@ -170,7 +170,7 @@ JOIN categorias cat ON p.categoria_id = cat.id
 GROUP BY cat.id, cat.nombre;
 ```
 
-![precio_promedio_categoria](sqlite42.PNG)
+![precio_promedio_categoria](IMG-P5/sqlite42.PNG)
 
 Otra opción es no unir las tablas de productos y categorías:
 
@@ -180,7 +180,7 @@ FROM productos
 GROUP BY categoria_id;
 ```
 
-![precio_promedio_categoria2](sqlite43.PNG)
+![precio_promedio_categoria2](IMG-P5/sqlite43.PNG)
 
 Donde acá, en vez de aparecer el nombre de la categoría, solo aparece su id.
 
@@ -230,7 +230,7 @@ Esto significa que para un cliente específico (``c.id``) se buscan sus pedidos 
 
 La primera línea de la subconsulta ``WHERE p.fecha_pedido = (`` filtra las filas del JOIN externo. De todos los pedidos del cliente, se mantienen solo aquellos cuya fecha coincide con la condición dada (máxima fecha encontrada).
 
-![subconsulta_correlacionada](sqlite44.PNG)
+![subconsulta_correlacionada](IMG-P5/sqlite44.PNG)
 
 Por lo tanto podemos ver los pedidos más recientes de Ana y Carlos, junto con la fecha del pedido y el total del pedido. María como no tiene pedidos realizados no aparece.
 
@@ -298,7 +298,7 @@ El ``AND dp.precio_unitario > 200`` revisa si algún detalle del pedido tiene un
 >
 > Si no devuelve filas -> EXISTS = FALSE -> cliente no aparece.
 
-![EXISTS](sqlite45.PNG)
+![EXISTS](IMG-P5/sqlite45.PNG)
 
 Finalmente, acá se puede observar que Ana es la única que aparece con su respectiva ciudad. 
 
@@ -312,7 +312,7 @@ JOIN pedidos p ON c.id = p.cliente_id
 JOIN detalle_pedidos dp ON p.id = dp.pedido_id
 JOIN productos prod ON dp.producto_id = prod.id
 ```
-![pedidos](sqlite46.PNG)
+![pedidos](IMG-P5/sqlite46.PNG)
 
 Al revisar los pedidos, efectivamente Ana es la única que tiene un producto caro (*Laptop Dell cuyo precio es 1200*).
 
