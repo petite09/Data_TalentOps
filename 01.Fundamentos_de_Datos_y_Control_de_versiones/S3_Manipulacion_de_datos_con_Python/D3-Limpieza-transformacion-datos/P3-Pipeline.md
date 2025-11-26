@@ -24,6 +24,8 @@ Se obtiene el siguiente DataFrame:
 
 ![crear-datos-problemas](IMG-P3/crear-datos-problemas.PNG)
 
+Se observa que hay algunos nombres, id y correos repetidos e inconsistencia en la capitalización de nombres y departamentos.
+
 ## Inspeccionar y diagnosticar problemas:
 
 ```
@@ -37,24 +39,23 @@ Al ejecutar ``print(f"\nTipos de datos: {df.dtypes}")`` muestra qué tipo de dat
 
 ![tipos-datos](IMG-P3/tipos-datos.PNG)
 
-Acá se puede observar que la columna edad está guardada como texto, a pesar de contener números.
+Acá se puede observar que la columna ``'edad'`` está guardada como texto, a pesar de contener números.
 
-En el cao de los duplicados y valores únicos en departamentos tenemos lo siguiente:
+En el caso de los duplicados y valores únicos en departamentos tenemos lo siguiente:
 
 ![duplicados](IMG-P3/duplicados.PNG)
 
 ``duplicated()`` marca True/False según si un valor ya apareció antes. Si ya apareció antes True, si no, False.
 
-``.sum()`` en este caso cuenta la cantidad de ``True`` que hay en la columna id (en ``{df['id'].duplicated().sum()}`` se indica la columna 'id') y luego pandas revisa todas las columnas y detecta si hay **filas** duplicadas completas (con ``{df.duplicated().sum()}``).
+``.sum()`` en este caso cuenta la cantidad de ``True`` que hay en la columna id (en ``{df['id'].duplicated().sum()}`` se indica la columna ``'id'``) y luego pandas revisa todo el DataFrame y detecta si hay **filas** duplicadas completas (con ``{df.duplicated().sum()}``).
 
 En este caso, se observa que hay 1 duplicado por id y no existen filas idénticas en el dataframe.
 
-Al ver el dataframe de la primera imagen se puede comprobar que el 'id' = 1 está dos veces. También es posible ver que el nombre de Ana García está más de una vez, pero escrito de maneras diferentes, lo que será importante para la parte de limpieza de duplicados.
+Al ver el dataframe de la primera imagen se puede comprobar que el 'id' = 1 está dos veces. También es posible ver que el nombre de Ana García está más de una vez, pero escrito de maneras diferentes.
 
 ![valores-unicos](IMG-P3/valores-unicos.PNG)
 
-Respecto a los valores únicos, ``{df['departamento'].unique()}`` muestra todos los valores distintos en esa columna. En este caso se ve que hay 6 valores únicos, sin embargo, podemos ver que *Ventas* está 2 veces, una como 'ventas' y la otra como 'VENTAS', lo que sería un ejemplo de capitalización inconsistente.
-
+Respecto a los valores únicos, ``{df['departamento'].unique()}`` muestra todos los valores distintos en esa columna. En este caso se ve que hay 6 valores únicos, sin embargo, podemos ver que *"Ventas"* está 2 veces, una como 'ventas' y la otra como 'VENTAS', lo que sería un ejemplo de capitalización inconsistente.
 
 
 ## Limpiar duplicados:
@@ -67,7 +68,7 @@ print(f"\nDespués de eliminar duplicados: {len(df_limpio)} filas")
 
 ![post-limpieza-duplicados](IMG-P3/post-limpieza-duplicados.PNG)
 
-Como se vió en la sección anterior, hay duplicados en la columna 'id', sin embargo, al ver si había duplicados de filas completas en el dataframe se vio que no había. Por lo tanto, una forma de eliminar duplicados es basarse en id y en el email.
+Como se vió en la sección anterior, hay duplicados en la columna 'id'. Sin embargo, al verificar si había duplicados de filas completas en el dataframe, se vio que no había. Una forma de eliminar duplicados es basarse en id y en el email.
 
 ``df.drop_duplicates(...)``: permite eliminar filas repetidas.
 
@@ -98,7 +99,7 @@ print("Después de correcciones:") print(df_limpio) print(f"\nTipos corregidos: 
 
 ![post-correcciones](IMG-P3/post-correcciones.PNG)
 
-La columna 'edad' venía como *string*, al usar ``pd.to_numeric(df_limpio['edad'], errors='coerce')`` estamos indicando que la columna 'edad' se convierta a tipo numérico y la parte de ``errors='coerce'`` indica que si algo no se puede convertir o hay valores inválidos, se conviertan en ``NaN``.
+La columna ``'edad'`` venía como *string*. Al usar ``pd.to_numeric(df_limpio['edad'], errors='coerce')`` estamos indicando que la columna ``'edad'`` se convierta a tipo numérico y la parte de ``errors='coerce'`` indica que si algo no se puede convertir o hay valores inválidos, se conviertan en ``NaN``.
 
 En la parte de normalizar departamento y nombres, ``str.tittle()`` es un método que permite dar formato **"Título"**, que consite en un tipo de capitalización donde la primera letra de cada palabra va en mayúscula y el resto en minúscula. Esto permite unificar categorías/nombres que son iguales pero que están escritos de forma diferentes como 'ventas' y 'VENTAS' que al aplicar la normalización, quedan como 'Ventas'.
 
@@ -135,7 +136,7 @@ También se creó otra columna llamara ``'categoria_edad'``. ``pd.cut()`` nos pe
 - 25 < edad ≤ 35 → "Adulto"
 - 35 < edad ≤ 100 → "Senior"
 
-Finalmente, se muestra el dataframe con las columnas solicitadas:
+Finalmente, se muestra el DataFrame con las columnas solicitadas:
 - nombre
 - edad
 - categoria_edad
