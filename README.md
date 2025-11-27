@@ -2,7 +2,7 @@
 Repositorio para subir las actividades de la Ruta Profesional de Datos de la plataforma TalentOps.
 
 Los contenidos del curso están divididos en 3:
-- Fundamentos de Datos y Control de Versiones
+- [Fundamentos de Datos y Control de Versiones](https://github.com/petite09/Data_TalentOps/tree/main/01.Fundamentos_de_Datos_y_Control_de_versiones)
 - Análisis de Datos y Estadística
 - Herramientas ETL y Proyecto final
 
