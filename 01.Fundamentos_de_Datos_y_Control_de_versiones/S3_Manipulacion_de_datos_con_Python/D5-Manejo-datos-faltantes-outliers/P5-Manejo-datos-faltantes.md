@@ -1,5 +1,8 @@
 # Pipeline completo de manejo de datos faltantes y outliers
 
+> [!IMPORTANT]
+> Se deben instalar las librerías ``scipy`` y ``missingno``. 
+
 ## Crear dataset con problemas realistas:
 
 ```
@@ -36,6 +39,36 @@ print(f"Dataset creado: {datos.shape}")
 print(f"Valores faltantes por columna:\n{datos.isnull().sum()}")
 ```
 
+- ``np.random.seed(42)``: es una función de la biblioteca NumPy que inicializa el generador de números aleatorios para que siempre produzca la misma secuencia de números aleatorios. Se hace estableciendo un valor de semilla (en este caso 42) para que los resultados sean reproducibles cada vez que se ejecuta el código.
+- ``n =1000``: indica que el dataset tendrá 1000 filas.
+
+Primero se crea un DataFrame con lo siguiente:
+
+- ``id``: de 1 a 1000.
+- ``edad``: distribución normal centrada en 35, desviación 10, con límites entre 18 y 80 (``np.random.normal(35, 10, n).clip(18, 80)``). Esto obliga que los valores queden dentro de ese rango. En este caso, tiene sentido limitar el rango dado que la columna representa la edad, por lo tanto, es poco probable que haya empleados menores de 18 o mayores de 80. La idea es tener un dataset realista para practicar.
+- ``salario``: distribución log-normal, típica para salarios (cola larga hacia valores altos)
+- ``horas_trabajo``: distribución normal, alrededor de 40 horas, con rango limitado entre 20 y 60 (``np.random.normal(40, 5, n).clip(20, 60)``).
+- ``satisfaccion``: valores enteros entre 1 y 5.
+-  ``departamento``: elige un departamento al azar (``np.random.choice(['IT', 'Ventas', 'Marketing', 'HR'], n)``). El np.random.choice permite seleccionar uno o varios elementos de una lista, arreglo o rango de manera aleatoria. 
+
+Luego se introducen valores faltantes al dataset.
+
+- ``mask_missing``: representa qué filas deben tener datos faltantes (en base a la condición ``np.random.random(n) < 0.1``). Esto genera un arreglo con números aleatorios entre 0 y 1.     
+    - Si es <= 0.1 → True → habrá un NaN.
+    - Si es > 0.1 False → se deja el valor original. 
+
+- ``datos.loc[mask_missing, 'salario'] = np.nan``: ``.loc`` permite seleccionar filas y columnas usando etiquetas o condiciones. En este caso, significa que en el DataFrame, en las filas donde mask_missing sea True, reemplaza el valor de la columna ``'salario'`` por NaN.
+
+Esto genera un 10% de datos faltantes en ``'salario''``.
+
+Para el caso de la horas de trabajo, se hace algo similar, excepto que ahora aproximadamente el 5% de los datos de ``'horas_trabajo`` quedan como NaN (``np.random.random(n) < 0.05``).
+
+
+![valores-faltantes](IMG-P5/valores-faltantes.PNG)
+
+Se puede observar que el DataFrame entregado contiene 1000 filas y 6 columnas. Al hacer el recuento de valores faltantes por columna (``datos.isnull().sum()``), se ve que en la columna ``'salario'`` hay 95 valores faltantes y en la columna ``horas_trabajo`` hay 46 valores faltantes.
+
+
 ## Analizar datos faltantes:
 
 ```
@@ -50,7 +83,8 @@ import missingno as msno
 # Análisis por departamento
 print("\nMissing values por departamento:")
 print(datos.groupby('departamento').apply(lambda x: x.isnull().sum()))
-Imputación de valores faltantes:
+
+#Imputación de valores faltantes:
 
 # Imputación por media para horas_trabajo
 media_horas = datos['horas_trabajo'].mean()
@@ -63,6 +97,8 @@ datos['salario'] = datos['salario'].fillna(mediana_salario)
 # Verificar que no queden missing values
 print(f"\nValores faltantes después de imputación: {datos.isnull().sum().sum()}")
 ```
+
+
 
 ## Detección de outliers:
 
