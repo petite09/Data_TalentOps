@@ -135,19 +135,38 @@ print(f"\nVentas totales por ciudad:\n{ventas_por_ciudad}")
 
 ```
 # Clientes con compras > 1000
-clientes_top = analisis_completo.groupby(['id_cliente', 'nombre'])['total'].sum()
+clientes_top = analisis_completo.groupby(['id_cliente', 'nombre_y'])['total'].sum()
 clientes_top = clientes_top[clientes_top > 1000]
 print(f"\nClientes con compras > 1000:\n{clientes_top}")
 ```
+![clientes-compras-sobre-mil](IMG-P4/clientes-compras-sobre-mil.PNG)
+
+- ``groupby(['id_cliente', 'nombre_y'])``: agrupa las filas por cliente (id y nombre). En este caso se usó ``'nombre_y'`` porque en los datasets hay 2 columnas llamadas ``'nombre'`` (en clientes y en productos). Al hacer el merge, como clientes también tiene ``'nombre'``, pandas debe renombrar una de las dos columnas.
+Pandas en este caso renombra los duplicados así:
+    - ``nombre_x``: del primer DataFrame del merge, en este caso nombre del producto.
+    - ``nombre_y``: del segundo DataFrame del merge, en este caso, nombre del cliente.
+
+>[!NOTE]
+> Para evitar confusiones, una opción es renombrar las columnas después del merge. 
+
+```
+analisis_completo = analisis_completo.rename(columns={
+    'nombre_y': 'nombre_cliente',
+    'nombre_x': 'producto'
+})
+```
+
+- ``['total'].sum()`` suma el total de todas sus compras (del cliente).
+- Finalmente se filtran aquellos clientes cuyo total (en compras) es > 1000.
 
 
 En este análisis, cada paso intermedio fue clave para construir una visión completa del comportamiento de ventas.
 
-El filtado permitió aislar subconjuntos relevantes de datos, como las ventas más recientes o los productos de mayor precio según un criterio establecido. La agrupación reveló patrones agregados (por producto, por cliente, por ciudad) que no son visibles a nivel de registro individual, aportando métricas esenciales como totales, promedios y frecuencias.
+El filtrado permitió aislar subconjuntos relevantes de datos, como las ventas más recientes o los productos de mayor precio según un criterio establecido. La agrupación reveló patrones agregados (por producto, por cliente, por ciudad) que no son visibles a nivel de registro individual, aportando métricas esenciales como totales, promedios y frecuencias.
 
-Los merge permitieron integrar distintos datasets (ventas, clientes y productos) en una sola vista enriquecida, vinculando la información transaccional con atributos de clientes y productos.
+Los merge permitieron integrar distintos datasets (ventas, clientes y productos) en una sola vista, vinculando la información transaccional con atributos de clientes y productos.
 
-En conjunto, estos procesos permitieron transformar datos en un análisis más profundo pudiendo identificar tendencias de comportamiento, medir rendimiento por catregorías y detectar a los clientes de mayor valor, aportando información y una base sólida para la toma de decisiones informada.
+En conjunto, estos procesos permitieron transformar datos en un análisis más profundo pudiendo identificar clientes de mayor valor y medir rendimiento por catregorías, aportando información y una base sólida para la toma de decisiones informada.
 
 
 --- 
