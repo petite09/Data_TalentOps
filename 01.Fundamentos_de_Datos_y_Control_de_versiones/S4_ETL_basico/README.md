@@ -1,0 +1,5 @@
+- Actividad Práctica 1: Diseño conceptual de pipeline ETL para un escenario empresarial. [P1-Pipeline-ETL-empresarial.md]
+- Actividad Práctica 2: Extracción desde múltiples fuentes heterogéneas. [P2-Extraccion-datos-fuentes-heterogeneas.md]
+- Actividad Práctica 3: Pipeline de transformación completo con validaciones. [P3-Pipeline-transformacion-completo.md]
+- Actividad Práctica 4: Implementar carga completa con validaciones y estrategias avanzadas. [P4-Implementar-carga-completa.md]
+- Actividad Práctica 5: Construir pipeline ETL completo con manejo robusto de errores y logging. [P5-Pipeline-ETL-completo.md]
