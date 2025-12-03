@@ -247,7 +247,7 @@ print(f"\nOutliers en salario log-transformado: {outliers_salario_log.sum()}")
 ```
 ![reduccion-outliers](IMG-P5/reduccion-outliers.PNG)
 
-Se vuelve a aplicar el método IQR pero ahora a la columna ya transformada. Como log reduce la escala, es esperable que más valores caigan dentro del rango intercuartílico "permitido" y por lo tanto que haya menos outliers.
+Se vuelve a aplicar el la función ``detectar_outliers_iqr(data, columna) `` pero ahora a la columna ya transformada. Como log reduce la escala, es esperable que más valores caigan dentro del rango intercuartílico "permitido" y por lo tanto que haya menos outliers.
 
 Con este ejemplo podemos comprobar que de 55 outliers en la columna ``salario`` (sin transformar), pasamos a 29 outliers luego de transformar (``salario_log``).
 
