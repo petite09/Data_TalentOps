@@ -211,7 +211,7 @@ Ejercicio práctico para aplicar los conceptos aprendidos.
     - De los 50 errores introducidos al inicio, 15 correspondían a ingresos negativos. Estos fueron identificados y corregidos.
     - Que los registros procesados sean 1000 indica que el pipeline procesó todo el dataset sin errores y que todas las transformaciones se aplicaron de forma consistente.
 
-Resumiendo, se detectaron y corrigieron las edades fuera de rango, se marcaron como inválidos los ingresos negativos y se ajustaron los gastos que excedían los ingresos. El dataset final conserva los 1000 registros y se cumple con las reglas de negocio definidas para el proceso ETL.
+Resumiendo, se detectaron y corrigieron las edades fuera de rango, se marcaron como inválidos los ingresos negativos y se ajustaron los gastos que excedían los ingresos. El dataset final conserva los 1000 registros y se cumple con las reglas de negocio definidas para este proceso.
 
 ---
 
