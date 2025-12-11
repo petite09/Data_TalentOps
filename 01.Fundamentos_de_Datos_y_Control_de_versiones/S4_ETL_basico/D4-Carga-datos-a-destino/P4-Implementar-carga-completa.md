@@ -153,10 +153,57 @@ if exito_clientes and exito_productos:
         - conn: conexión a la base de datos.
         - claves_foraneas: lista de validaciones para foreing keys. Por defecto es ``None``. Si se le pasa una lista de claves foráneas a validar, entonces se usa esa lista.
 - Validación de claves foráneas:
-    - Esto solo se ejecuta si se entrega la lista ``calves_foraneas``.
+    - Esto solo se ejecuta si se entrega la lista ``claves_foraneas``.
+    - Validar que la columna ``id_cliente`` del DataFrame exista como clave en ``clientes.id_cliente``.
+- Obtener valore válidos:
+    - ``valores_validos = pd.read_sql(f'SELECT {columna_ref} FROM {tabla_ref}', conn)``: se consulta la tabla referenciada para obtener IDs válidos.
+    - ``valores_validos = valores_validos[columna_ref].tolist()``: luego estos valores válidos se convierten en una lista.
+- Detectar registros inválidos:
+    - ``invalidos = ~df[columna].isin(valores_validos)``: devuelve True si el valor existe. El ``~`` (NOT) invierte este resultado.
+    -``.any()``: revisa si hay al menos un True.
+    - ``.sum()``: cuenta cuántos registros inválidos hay.
+    - ``df = df[~invalidos]``: filtra eliminando los registros inválidos.
+    - Si hay registros inválidos se imprime en pantalla un mensaje de advertencia.
+- Cargar los datos válidos en la base:
+    - ``df.to_sql(tabla, conn, index=False, if_exists='append')``: inserta el DataFrame (df) en la tabla.
+    - ``append``: agrega filas.
+    - Si no hay errores en la carga, la función devuelve True y se imprime el mensaje de carga exitosa.
+- Manejo de errores:
+    - Si algo falla, el error se captura y la función devuelve False y se imprime el mensaje con el error.
+
+    >[!IMPORTANT]
+> ``Exception`` es la clase base de la cual heredan todos los tipos de error de Python. Sirve para capturar errores.
+
+- Cargar tablas base (sin dependencias):
+    - Se está llamando la función ``cargar_con_validación()`` para insertar datos en las tablas que **no** dependen de otras. La tabla clientes y productos, no tienen claves foráneas (por eso la función se llama sin el parámetro ``claves_foraneas``).
+- Cargar ventas (sí tiene claves foráneas):
+    - La condición ``AND`` de ``if exito_clientes and exito_productos`` se establece porque ``ventas`` depende de ``clientes`` y ``productos``. Si alguno de esos no se cargó bien, no tendría sentido cargar ventas.
+    - Se definen las claves foráneas en una lista de tuplas.
+
+    >[!IMPORTANT]
+    > Cada tupla significa:
+    >
+    >(columna_en_ventas, tabla_referenciada, columna_referenciada)
+
+    - En este caso sí se está entregando el parámetro ``claves_foraneas``, por lo que se consultan los valores válidos en la tabla clientes Y  productos. Se detectan los IDs inválidos dentro de ventas. Se eliminan antes de insertar los datos y luego solo se cargan las filas válidas.
 
 
 ![cargar-validaciones](IMG-P4/cargar-validaciones.PNG)
+
+Se observa que se cargaron 5 registros en clientes y 5 en productos.
+Hay dos advertencias: 5 registros en id_cliente no existen en clientes y 4 registros en id_producto no existen en productos.
+En ventas se observa que se cargaron 11 registros y no hubo advertencias.
+Esto es consistente con los datos iniciales:
+- El DataFrame ``ventas`` inicialmente tenía 20 ventas iniciales.
+    - 5 de esas ventas tenían clientes inválidos y fueron descartadas.
+    - 4 de esas ventas tenían productos inválidos y fueron descartadas.
+    - solo 11 de las 20 ventas pasaron las validaciones y se cargaron a la tabla de destino.
+
+>[!NOTE]
+> Recordar que en la tabla ventas se introdujeron algunos errores intencionales.
+
+>[!NOTE]
+> Recordar que para la tabla clientes solo contiene estos IDs: 1, 2, 3, 4, 5. Y que la tabla productos solo contiene estos IDs: 101, 102, 103, 104, 105.
 
 4. **Verificar carga y ejecutar consultas**:
     
@@ -165,7 +212,23 @@ if exito_clientes and exito_productos:
 for tabla in ['clientes', 'productos', 'ventas']:
     count = pd.read_sql(f'SELECT COUNT(*) FROM {tabla}', conn).iloc[0,0]
     print(f"{tabla}: {count} registros")
+```
 
+![verificar-conteos](IMG-P4/verificar_conteos.PNG)
+
+- El ``for`` recorre la lista de nombres de tablas.
+- ``pd.read_sql()`` ejecuta una consulta SQL y devuelve un DataFrame con el resultado. La consulta consiste en contar cuántas filas tiene cada tabla.
+- ``.iloc[0,0]`` extrae el primer elemento del DataFrame creado.
+
+>[!NOTE]
+> Esto ocurre **después** de la carga de datos.
+
+>[!IMPORTANT]
+> Cada consulta del ``for`` gener aun DataFrame nuevo (por iteración). Este DataFrame se guarda temporalmente en la variable ``count`` (antes de aplicar ``.iloc``).
+
+- Esto verifica que se cargaron los datos esperados ✅.
+
+```python
 # Consulta de ejemplo: ventas por cliente
 query_result = pd.read_sql('''
     SELECT c.nombre, COUNT(v.id_venta) as num_ventas,
@@ -182,9 +245,17 @@ print(query_result)
 conn.close()
 
 ```
-    
+
 ![ventas-por-cliente](IMG-P4/ventas-por-cliente.PNG)
 
+- Esta consulta une ``clientes``con ``ventas``.
+- LEFT JOIN trae todos los clientes (aunque no tengan ventas, por eso aparece ``Ana García``).
+- ``COUNT(v.id_venta)``: calcula cuántas ventas hizo cada cliente.
+- ``SUM(v.cantidad * v.precio_unitario)`` calcula el monto total vendido.
+- Luego se agrupa por cliente y se ordena de mayor a menor según el total de ventas.
+- Este resultado se guarda en un DataFrame llamado ``query_result``.
+
+Finalmente ``conn.close()`` cierra la conexión a la base de datos.
 
 ---
 
