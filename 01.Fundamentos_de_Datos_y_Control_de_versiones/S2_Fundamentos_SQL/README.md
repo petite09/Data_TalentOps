@@ -1,7 +1,7 @@
 # Semana 2 - Fundamentos de SQL
 
-- Actividad Práctica 1: Explorar y analizar un esquema de base de datos relacional. [P1-Esquema-bbdd-relacional.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P1-Esquema-bbdd-relacional.md)
-- Actividad Práctica 2: Consultas básicas en base de datos de ventas. [P2-Consultas-bbdd.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P2-Consultas-bbdd.md)
-- Actividad Práctica 3: Consultas con joins en esquema de ventas. [P3-Consultas-joins.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P3-Consultas-joins.md)
-- Actividad Práctica 4: Análisis agregado de datos de ventas. [P4-Analisis-agregado-datos.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P4-Analisis-agregado-datos.md)
-- Actividad Práctica 5: Consultas avanzadas con subconsultas en base de datos completa. [P5-Subconsultas.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P5-Subconsultas.md)
+- Actividad Práctica 1: 📝 Explorar y analizar un esquema de base de datos relacional. [P1-Esquema-bbdd-relacional.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P1-Esquema-bbdd-relacional.md)
+- Actividad Práctica 2: 📝 Consultas básicas en base de datos de ventas. [P2-Consultas-bbdd.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P2-Consultas-bbdd.md)
+- Actividad Práctica 3: 📝 Consultas con joins en esquema de ventas. [P3-Consultas-joins.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P3-Consultas-joins.md)
+- Actividad Práctica 4: 📝 Análisis agregado de datos de ventas. [P4-Analisis-agregado-datos.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P4-Analisis-agregado-datos.md)
+- Actividad Práctica 5: 📝 Consultas avanzadas con subconsultas en base de datos completa. [P5-Subconsultas.md](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P5-Subconsultas.md)
