@@ -172,7 +172,7 @@ if exito_clientes and exito_productos:
     - Si algo falla, el error se captura y la función devuelve False y se imprime el mensaje con el error.
 
     >[!IMPORTANT]
-> ``Exception`` es la clase base de la cual heredan todos los tipos de error de Python. Sirve para capturar errores.
+    > ``Exception`` es la clase base de la cual heredan todos los tipos de error de Python. Sirve para capturar errores.
 
 - Cargar tablas base (sin dependencias):
     - Se está llamando la función ``cargar_con_validación()`` para insertar datos en las tablas que **no** dependen de otras. La tabla clientes y productos, no tienen claves foráneas (por eso la función se llama sin el parámetro ``claves_foraneas``).
