@@ -121,8 +121,8 @@ Ejercicio práctico para aplicar los conceptos aprendidos.
         - Si ``'ratio_ahorro'``> 0 → Equilibra
         - Si no se cumple nada → Déficit
 
-        >[!NOTE]
-        > np.where(condición, valor_si_True, valor_si_False)
+>[!NOTE]
+> np.where(condición, valor_si_True, valor_si_False)
 
 - Teléfono:
     - Se crea una nueva columna llamada ``'codigo_area'``. Se quiere obtener los 3 dígitos dentro de los paréntesis (XXX) del número de teléfono (extraer el código de área del teléfono)
@@ -130,14 +130,14 @@ Ejercicio práctico para aplicar los conceptos aprendidos.
     - ``.str`` permite usar métodos de texto sobre una serie.
     - ``.extract(r'\((\d{3})\)')`` es lo que permite encontrar "(", capturar los dígitos "(\d{3})" y encontrar ")". ``.extract(patrón regex)`` extrae el texto que coincide con una expresión regular.
 
-    >[!NOTE]
-    > Las expresiones regulares son una herramienta del ``módulo re`` para buscar y manipular patrones de texto.
+>[!NOTE]
+> Las expresiones regulares son una herramienta del ``módulo re`` para buscar y manipular patrones de texto.
 
 - Antigüedad cliente:
     - Se crea una nueva columna llamada ``'antiguedad_dias'`` que es igual a la resta entre la fecha y hora actuales (``pd.Timestamp.now()``) y la fecha de registro.
 
-    >[!IMPORTANT]
-    > Ojo que restar una columna de fechas da una serie de timedeltas, un tipo de dato que representa una duración.
+>[!IMPORTANT]
+> Ojo que restar una columna de fechas da una serie de timedeltas, un tipo de dato que representa una duración.
 
     - ``.dt.days`` convierte esos timedeltas en número de días.
     - Luego con esta nueva columna de ``'antiguedad_dias'``, al dividirla en 30, se obtiene la ``'antiguedad_meses'``.
