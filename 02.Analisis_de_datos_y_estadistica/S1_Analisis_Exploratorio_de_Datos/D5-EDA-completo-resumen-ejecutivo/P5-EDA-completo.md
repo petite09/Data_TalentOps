@@ -264,19 +264,19 @@ Respecto a las recomendaciones, se proponen las siguiente de acuerdo a los anál
 
 **1. ¿Qué vende mejor?**
 
-    El análisis por categoría muestra que Deportes es la categoría con mayor ingreso total, lo que indica que concentra la mayor generación de ventas en términos monetarios. Asimismo, el estudio de correlaciones evidencia que el valor de cada pedido está principalmente determinado por el precio unitario y la cantidad de productos, más que por la categoría en sí, lo que sugiere que el mix de productos y las estrategias de pricing son factores clave del desempeño comercial.
+El análisis por categoría muestra que Deportes es la categoría con mayor ingreso total, lo que indica que concentra la mayor generación de ventas en términos monetarios. Asimismo, el estudio de correlaciones evidencia que el valor de cada pedido está principalmente determinado por el precio unitario y la cantidad de productos, más que por la categoría en sí, lo que sugiere que el mix de productos y las estrategias de pricing son factores clave del desempeño comercial.
 
 **2. ¿Quiénes son los mejores clientes?**
 
-    De acuerdo al análisis por tipo de cliente, los clientes Regulares se posicionan como el segmento más relevante para el negocio, ya que concentran el mayor número de pedidos y el mayor ingreso total acumulado. Si bien los segmentos Premium y VIP pueden representar oportunidades de fidelización, el EDA demuestra que el grueso de los ingresos proviene de la alta frecuencia de compra del segmento Regular, más que de un mayor ticket promedio por pedido.
+ De acuerdo al análisis por tipo de cliente, los clientes Regulares se posicionan como el segmento más relevante para el negocio, ya que concentran el mayor número de pedidos y el mayor ingreso total acumulado. Si bien los segmentos Premium y VIP pueden representar oportunidades de fidelización, el EDA demuestra que el grueso de los ingresos proviene de la alta frecuencia de compra del segmento Regular, más que de un mayor ticket promedio por pedido.
 
 **3. ¿Cuándo ocurren las ventas?**
 
-    El análisis temporal evidencia una distribución relativamente estable de ventas durante los primeros meses del período analizado, con variaciones mensuales influenciadas principalmente por la cobertura temporal del dataset. A nivel semanal, las ventas se distribuyen de forma homogénea, aunque se observan días con mayor ticket promedio, como Martes y Domingo, lo que permite identificar momentos más favorables para campañas comerciales o lanzamientos de productos.
+El análisis temporal evidencia una distribución relativamente estable de ventas durante los primeros meses del período analizado, con variaciones mensuales influenciadas principalmente por la cobertura temporal del dataset. A nivel semanal, las ventas se distribuyen de forma homogénea, aunque se observan días con mayor ticket promedio, como Martes y Domingo, lo que permite identificar momentos más favorables para campañas comerciales o lanzamientos de productos.
 
 **4. ¿Qué patrones requieren acción inmediata?**
 
-    El EDA identifica que el total del pedido depende fuertemente del precio unitario y de la cantidad de productos, lo que sugiere que acciones inmediatas deberían centrarse en incrementar el valor del carrito, mediante estrategias de upselling y bundles. Además, la estabilidad en el volumen de pedidos, combinada con variaciones en el ticket promedio por día, indica oportunidades tácticas para optimizar promociones y gestión de inventario en función de patrones temporales específicos.
+El EDA identifica que el total del pedido depende fuertemente del precio unitario y de la cantidad de productos, lo que sugiere que acciones inmediatas deberían centrarse en incrementar el valor del carrito, mediante estrategias de upselling y bundles. Además, la estabilidad en el volumen de pedidos, combinada con variaciones en el ticket promedio por día, indica oportunidades tácticas para optimizar promociones y gestión de inventario en función de patrones temporales específicos.
 
 --- 
 Verificación: Evalúa si tu análisis responde preguntas clave de negocio: ¿Qué vende mejor? ¿Quiénes son los mejores clientes? ¿Cuándo ocurren las ventas? ¿Qué patrones requieren acción inmediata?
