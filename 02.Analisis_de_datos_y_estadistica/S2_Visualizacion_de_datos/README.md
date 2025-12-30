@@ -1,7 +1,7 @@
 # Semana 6 - Visualización de datos 📊
 
 - Actividad Práctica 1: 📝 Diseño de paletas de colores efectivas para diferentes contextos. [P1-Paleta-colores.md](https://github.com/petite09/Data_TalentOps/blob/main/02.Analisis_de_datos_y_estadistica/S2_Visualizacion_de_datos/D1-Principios-visualizaci%C3%B3n/P1-Paleta-colores.md)
-- Actividad Práctica 2: 📝 AAnálisis visual inicial de dataset empresarial completo. [P2-Analisis-visual-dataset-empresarial.md]()
-- Actividad Práctica 3: 📝Construcción de dashboard analítico completo para análisis de e-commerce. [P3-Dashboard-analitico.md]()
+- Actividad Práctica 2: 📝 AAnálisis visual inicial de dataset empresarial completo. [P2-Analisis-visual-dataset-empresarial.md](https://github.com/petite09/Data_TalentOps/blob/main/02.Analisis_de_datos_y_estadistica/S2_Visualizacion_de_datos/D2-Graficos-basicos-matplotlib/P2-Analisis-visual-dataset-empresarial.md)
+- Actividad Práctica 3: 📝Construcción de dashboard analítico completo para análisis de e-commerce. [P3-Dashboard-analitico.md](https://github.com/petite09/Data_TalentOps/blob/main/02.Analisis_de_datos_y_estadistica/S2_Visualizacion_de_datos/D3-Visualizaciones-avanzadas/P3-Dashboard-analitico.md)
 - Actividad Práctica 4: 📝 ACreación de presentación analítica impactante sobre rendimiento de ventas. [P4-Presentacion-analitica.md]()
 - Actividad Práctica 5: 📝Comparación de herramientas para análisis de ventas. [P5-Comparacion-herramientas.md]()
