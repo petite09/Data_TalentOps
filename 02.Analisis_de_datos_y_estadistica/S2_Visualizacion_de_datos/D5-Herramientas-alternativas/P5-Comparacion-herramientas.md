@@ -226,7 +226,7 @@ Este bloque crea un dashboard 2x2 interactivo en formato web usando plotly graph
 
 🎥 **Demostración del dashboard interactivo Plotly:** 
 
-[![Dashboard interactivo Plotly](https://img.youtube.com/vi/94j1Mp5EMic/0.jpg)](youtube.com/watch?v=94j1Mp5EMic&feature=youtu.be)
+[![Dashboard interactivo Plotly](https://img.youtube.com/vi/94j1Mp5EMic/0.jpg)](https://www.youtube.com/watch?v=94j1Mp5EMic&feature=youtu.be)
 
 #### Ventas por Región (barras):
 
