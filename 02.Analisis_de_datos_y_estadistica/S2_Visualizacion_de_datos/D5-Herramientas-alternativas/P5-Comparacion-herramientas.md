@@ -224,9 +224,7 @@ Este bloque crea un dashboard 2x2 interactivo en formato web usando plotly graph
 
 ![Figure-2](IMG-P5/Figure_2_corregida.PNG)
 
-Se inserta un pequeño video que muestra la parte interactiva del dashboard.
-
-<video controls src="IMG-P5/video-plotly.mp4" title="video_plotly"></video>
+🎥 Demostración del dashboard interactivo Plotly: [Ver video del dashboard](https://github.com/petite09/Data_TalentOps/blob/main/02.Analisis_de_datos_y_estadistica/S2_Visualizacion_de_datos/D5-Herramientas-alternativas/IMG-P5/video-plotly.mp4)
 
 #### Ventas por Región (barras):
 
