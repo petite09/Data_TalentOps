@@ -297,7 +297,7 @@ Se observan desviaciones claras de la línea recta, curvatura pronunciada en lac
 > - optimizar qué distribución explica mejor los datos.
 
 >[!NOTE]
-> Solo se hizo un ajuste para log-normal (gráfico 3).
+> Solo se hizo un ajuste para log-normal (gráfico 2).
 
 
 Este bloque de visualización permitió contrastar los datos empíricos con distribuciones teóricas, validando el uso de la Poisson para modelar el número de compras, la log-normal para el valor de compra y el teorema del límite central para la inferencia sobre la media del gasto total. Los gráficos refuerzan visualmente los resultados obtenidos en el análisis estadístico previo.
