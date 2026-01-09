@@ -58,8 +58,7 @@ print(f"Datos creados: {len(df)} clientes en {len(canales)} canales.")
 print("-" * 50)
 ```
 
-![paso1](paso1.PNG)
-
+!![paso1](IMG-P3/paso1.PNG)
 
 Este bloque generó un conjunto de datos simulados de 300 clientes segmentados en cinco calaes de adquisición:
 
@@ -111,7 +110,7 @@ else:
 > - Independencia de las observaciones.
 
 
-![paso2](paso2.PNG)
+![paso2](IMG-P3/paso2.PNG)
 
 1. Para evaluar Normalidad se usó un test de Shapiro-Wilk:
 - H₀: los datos del grupo siguen una distribución normal
@@ -174,7 +173,7 @@ if homocedasticidad: ...
 else: ...  esto es lo que se ejecuta, ya que no se cumple la homocedasticidad.
 ```
 
-![paso3](paso3.PNG)
+![paso3](IMG-P3/paso3.PNG)
 
 
 Se observa que el test utilizado es el Welch ANOVA (Robusto). El estadístico F = 30.451. 
@@ -275,7 +274,7 @@ Finalmente se crea un DataFrame con los resultados (``df_posthoc``).
 
 Resumiendo, el bloque compara todo con todo, corrige errores y deja solo importante.
 
-![paso4](paso4.PNG)
+![paso4](IMG-P3/paso4.PNG)
 
 
 Los resultados indican diferencias estadísticamente significativas entre varios pares de canales, destacando que los clientes provenientes de Referidos y Email Marketing presentan un CLV significativamente mayor en comparación con Redes Sociales, Búsqueda Orgánica y Publicidad Paga.
@@ -350,10 +349,10 @@ print("Análisis finalizado.")
 
 Se generan 3 gráficos y un resumen ejecutivo.
 
-![analisis-finalizado](analisis-finalizado.png)
+![analisis-finalizado](IMG-P3/analisis-finalizado.png)
 
-![paso5](paso5.PNG)
 
+![paso5](IMG-P3/paso5.PNG)
 
 a) Boxplot - Distribución de CLV por canal
 
@@ -384,7 +383,7 @@ Grafica una matriz de diferencias solo donde hubo diferencias significativas.
 - Azul: si la fila es mayor que la columna
 - Rojo: si la fila es menor que la columna
 
-La intensidad es la magnitud de la diferencia. Los colores más intensos corresponden al output observado en el [paso 4 - Pruebas post-hadoc](paso4.PNG).
+La intensidad es la magnitud de la diferencia. Los colores más intensos corresponden al output observado en el [paso 4 - Pruebas post-hadoc](IMG-P3/paso4.PNG).
 
 >[!CAUTION]
 > Es importante destacar que a diferencia de otras matrices que hemos visto en el curso, en este caso no es una matriz de correlación, si no que de diferencias.
