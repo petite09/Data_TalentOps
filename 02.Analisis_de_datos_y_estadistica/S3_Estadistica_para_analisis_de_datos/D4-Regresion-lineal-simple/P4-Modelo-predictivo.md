@@ -56,7 +56,57 @@ print("\nCORRELACIONES CON CLV:")
 for var, corr in correlaciones.items():
     if var != 'clv':
         print(f"{var:20} | {corr:+.3f}")
+```
 
+Se generó un dataset de 200 clientes con las siguientes variables:
+
+- ``'cliente_id'``
+- ``'edad'``
+- ``'ingresos'``
+- ``'frecuencia_compras'``
+- ``'antiguedad_meses'``
+- ``'satisfaccion'``
+- ``'canal_adquisicion'``
+
+Se genera el CLV como una combinación lineal explícita de las siguientes variables:
+
+- ``'ingresos'``
+- ``'frecuencia_compras'``
+- ``'antiguedad_meses'``
+- ``'satisfaccion'``
+
+```python
+clv_base = (ingresos * 0.02 +
+            frecuencia_compras * 50 +
+            antiguedad_meses * 2 +
+            satisfaccion * 30)
+```
+
+Esta ecuación es una función generadora de datos. Se define una relación matemática "verdadera" entre variables, se generan datos y luego se ve si el modelo es capaz de recuperar esa relación. En este caso, ingresos queda como driver del CLV. 
+
+En el fondo, el CLV fue generado mediante una función lineal sintética que combina variables de comportamiento y perfil del cliente, con el objetivo de simular un proceso generador de datos controlado. Esto permite evaluar la capacidad del modelo de regresión lineal para recuperar relaciones conocidas bajo supuestos estadísticos clásicos.
+
+Luego se genera ruido homocedástico. Esto significa que todos los clientes tienen la misma varianza del error. De esta manera, se cumple el supuesto clásico de homocedasticidad.
+
+![dataset-para-modelado](IMG-P4/paso1.PNG)
+
+
+De los 200 clientes analizados, se observa un CLV promedio de $1384 y un rango del CLV entre $317 y $8112. 
+
+>[!NOTE]
+> CLV se mide en la moneda de la empresa. Representa el beneficio, ingreso o margen de beneficio que se espera obtener del cliente.
+
+Luego se hace un análisis de correlaciones con CLV para 5 variables:
+
+- ``'ingresos'``: + 0.940 indica una relación muy fuerte y positiva.
+- ``'frecuencia_compras'``: + 0.252 indica una relación positiva moderada.
+- ``'edad'`` y ``'antiguedad_meses'``: + 0.064 y + 0.063 respectivamente, indican correlaciones positivas muy débiles.
+- ``'satisfaccion'``: - 0.061  correlación negativa muy débil.
+
+
+
+## Construcción del modelo de regresión
+```python
 # ==========================================
 # 2. CONSTRUCCIÓN DEL MODELO DE REGRESIÓN
 # ==========================================
@@ -98,7 +148,81 @@ mejora_rmse = ((rmse_1 - rmse_2) / rmse_1) * 100
 print("\nCOMPARACIÓN DE MODELOS:")
 print(f"Mejora R²: {mejora_r2:.1f}%")
 print(f"Mejora RMSE: {mejora_rmse:.1f}%")
+```
 
+Este bloque genera 2 modelos:
+
+
+![comparacion-modelos](IMG-P4/paso2.PNG)
+
+1. Modelo 1: Usando ingresos como predictor principal
+
+Tiene un R² = 0.884, lo que indica que el 88.4% de la variabilidad del CLV se explica solo por los ingresos. 
+
+>[!NOTE]
+> RMSE: Root Mean Square Error. Es el error cuadrático medio que mide la diferencia promedio entre los valores predichos por un modelo y los valores reales observados, expresada en las mismas unidades de la variable objetivo. Mientras más bajo el valor, significa que se ajusta mejor al modelo.
+
+En este caso, el RMSE es $258. Recordar que el CLV promedio es de $1384 y que hay una alta dispersión en los valores de CLV, por lo que $258 es un valor razonable.
+
+Los ingresos por sí solos sun un predictor muy fuerte del CLV, pero no capturan completamente el comportamiento del cliente.
+
+2. Modelo 2: Múltiples predictores
+
+Tiene un R² = 0.916, lo que indica que el modelo explica 91.6% de la variabilidad del CLV y el RMSE baja a un $219. 
+
+>[!NOTE]
+> AIC Akaike Information Criterion (Criterio de Información Akaike).
+> Es una métrica para comparar modelos estadísticos. Un menor valor de AIC indica mejor modelo. 
+
+En este caso, como no se tiene el valor AIC del modelo uno no se puede decir mucho respecto a este dato. Solo tiene sentido cuando se compara entre dos o más modelos ajustados sobre el mismo conjunto de datos.
+
+En una regresión lineal, los coeficientes son los números que indican cuánto cambia el CLV cuando una variable aumenta en 1 unidad, manteniendo las demás constantes.
+
+Si comparamos los coeficientes estimados por el modelo y los reales tenemos lo siguiente:
+
+| Variable              | Coeficiente real | Coeficiente estimado |
+|-----------------------|------------------|----------------------|
+| ingresos              | 0.02             | **0.0202**           |
+| frecuencia_compras    | 50               | **55.6**             |
+| antiguedad_meses      | 2                | **2.68**             |
+| satisfaccion          | 30               | **35.1**             |
+
+Estos resultados sugieren que incorporar variables de comportamiento al modelo, mejora la precisión de este.
+
+
+Respecto a la tabla del output de este paso, se observan las siguientes columnas (además de la de coeficiente y std err):
+
+- ``t``: estadístico t. Mide cuántas desviaciones estándar está el coeficiente lejos de 0.
+
+    t = Coeficiente estimado/Error estándar
+
+    - |t| grande → evidencia fuerte de que el coeficiente no es 0
+    - |t| pequeño → el coeficiente podría ser 0 (no hay efecto claro)
+
+- ``P>|t|``: p-valor del coeficiente. Si el coeficiente real fuera 0, ¿qué tan probable es observar un valor tan extremo como este?
+
+    - p < 0.05: coeficiente estadísticamente significativo
+    - p ≥ 0.05: no hay evidencia suficiente
+
+En este modelo, todos los p son < 0.05, excepto para el caso del intercepto, cuyo p = 0.453.
+
+>[!IMPORTANT]
+> Significativo no significa importante, solo que el efecto es distinto de 0.
+
+- ``[0.025 0.975]``: intervalo de confianza al 95%. Estas dos columnas representan el rango donde probablemente se encuentra el coeficiente verdadero, con un 95% de confianza.
+
+    - 0.025 → límite inferior (2.5%)
+    - 0.975 → límite superior (97.5%)
+
+    Esto deja 2.5% de probabilidad en la cola izquierda y 2.5% de probabilidad en la cola derecha:
+
+    100% - 2.5% - 2.5% = 95%, por eso ese rango es el intervalo de confianza al 95%.
+
+El estadístico t y su p-valor asociado permiten evaluar la significancia estadística de cada predictor. Asimismo, los intervalos de confianza al 95% entregan un rango plausible para los coeficientes verdaderos, evidenciando la precisión de las estimaciones.
+
+
+## Interpretación de coeficientes
+```python
 # ==========================================
 # 3. INTERPRETACIÓN DE COEFICIENTES
 # ==========================================
@@ -130,7 +254,31 @@ for var in ['ingresos', 'frecuencia_compras', 'antiguedad_meses', 'satisfaccion'
     elif var == 'satisfaccion':
         print(f"   Impacto: Cada punto de satisfacción añade ${coef:.2f} al CLV")
     print()
+```
 
+Este bloque extrae del modelo:
+ 
+- Coeficientes (``params``)
+- p-valores (``p-values``)
+- intervalos de confianza (``conf_int``)
+
+Recorre solo las variables relevantes y traduce cada coeficiente a: significancia estadística e impacto económico directo.
+
+![interpretacion-coeficientes](IMG-P4/paso3.PNG)
+
+En el caso de los ``ingresos``, es el predictor más robusto del CLV, por cada $1000 extra, el CLV sube $20 (esto dado por el coeficiente).
+
+En el caso de la ``frecuencia_compras``: cada compra adicional añade $56 al CLV.
+
+Para la ``antiguedad_meses``: cada mes de antigüedad añade $3 al CLV. No e sun driver fuerte por unidad, pero sí por persistencia. Un mes aislado aporta poco, pero la acumulación en el tiempo sí importa, suma valor sostenidamente.
+
+En el caso de la ``satisfaccion``: cada punto de satisfacción añade $35.15 al CLV. 
+
+La interpretación de los coeficientes permite traducir el modelo estadístico a impactos económicos concretos. Los resultados indican que los ingresos y la frecuencia de compra son los principales determinantes del CLV. Esto se debe a su mayor capacidad explicativa, su impacto económico acumulado dada su escala, y la alta precisión con que sus efectos son estimados en el modelo. Mientras que la antigüedad y la satisfacción presentan efectos positivos pero de menor magnitud. Todos los coeficientes analizados resultan estadísticamente significativos, y sus intervalos de confianza al 95%.
+
+
+## Validación de supuestos
+```python
 # ==========================================
 # 4. VALIDACIÓN DE SUPUESTOS
 # ==========================================
@@ -169,7 +317,58 @@ print("\nMULTICOLINEALIDAD (VIF):")
 for _, row in vif_data.iterrows():
     problema = "PROBLEMA" if row['VIF'] > 5 else "OK"
     print(f"{row['Variable']:20} | VIF={row['VIF']:.2f} | {problema}")
+```
 
+![validacion-supuestos](IMG-P4/paso4.PNG)
+
+La regresión lineal clásica se apoya en 4 grandes supuestos. La idea de este bloque es ir validando cada uno de estos.
+
+1. Test Shapito-Wilk
+
+Evalúa si los residuos siguen aproximadamente una distribución normal.
+
+>[!NOTE]
+> En una regresión, los residuos son la diferencia entre el CLV rel y el CLV que predice el modelo, para cada cliente.
+>
+> $residuo_i = y_i - \hat{y}_i$.
+
+En este caso, como p = 0.2083, no se recha la normalidad.
+
+2. Homocedasticidad - Test Breusch-Pagan
+
+Evalúa si la varianza de los residuos es constante a lo largo de los valores ajustados.
+
+Como p > 0.05 (p=0.4250) no hay evidencia de heterocedasticidad. Lo que indica que el error del modelo es estable.
+
+3. Independencia de los residuos - Test Durbin-Watson
+
+Evalúa la autocorrelación entre residuos consecutivos.
+
+El estadístico DW siempre toma valores entre 0 y 4: 0 ≤ 𝐷𝑊 ≤4
+- Un DW cercano a 0 indica una fuerte autocorrelación positiva, que viola el supuesto de independencia.
+- Un DW < 1.5 indica autocorrelación positiva moderada, podría ser problemático.
+- Un DW cercano a 2 indica residuos independientes.
+- Un DW > 2.5 indica autocorrelación negativa moderada.
+- Un DW cercano a 4 indica una fuerte autocorrelación negativa, que viola el supuesto de independencia.
+
+``DW = 1.952  (ideal entre 1.5 y 2.5)`` indica residuos independientes.
+
+4. Multicolinealidad - Métrica VIF (Variance Inflation Factor)
+
+>[!NOTE]
+> La multicolinealidad ocurre cuando dos o más variables explicativas de un modelo de regresión están fuertemente correlacionadas entre sí. Es decir, explican lo mismo y aportan información redundante. Esto puede generar problemas, porque el modelo no sabe a cuál asignar el efecto y afecta la interpretación de los coeficientes.
+
+
+VIF: Evalúa si los predictores están altamente correlacionados entre sí.
+
+- VIF < 5: aceptable
+- VIF < 2: excelente
+
+En este caso, todas las VIF calculadas son menores a 2. Por lo que no hay multicolinealidad, los coeficientes son estables y que cada variable aporta información independiente.
+
+
+## Visualización completa
+```python
 # ==========================================
 # 5. VISUALIZACIÓN COMPLETA
 # ==========================================
@@ -235,6 +434,67 @@ cliente_nuevo = pd.DataFrame({
 clv_predicho = modelo2.predict(cliente_nuevo)[0]
 print(f"\nPredicción para cliente nuevo: ${clv_predicho:.0f}")
 ```
+
+Este bloque genera 4 gráficos y un resumen ejecutivo.
+
+![graficos](IMG-P4/graficos.png)
+
+1. Valores observados vs predichos (por el modelo 2)
+
+- Cada punto representa un cliente.
+- El Eje X es el CLV observado.
+- El Eje Y es el CLV predicho.
+- La línea roja es la predicción perfecta (y=x).
+
+Este gráfico muestra la capacidad predictiva global del modelo. Se observa que la mayoría de los puntos están muy cerva de la lína roja. No se observan sesgos evidentes. El modelo predice bien todo el rango del CLV.
+
+
+2. Residuos vs valores Ajustados
+
+- Cada punto también representa un cliente individual del dataset.
+- Eje X: valores ajustados (los predichos)
+- Eje Y: residuos
+- Línea roja representa residuo = 0
+
+Residuos:
+
+- Residuo > 0 (sobre la línea roja)
+    - El modelo subestima al cliente
+    - CLV real > CLV predicho
+
+- Residuo < 0 (bajo la línea roja)
+    - El modelo sobreestima al cliente
+    - CLV real < CLV predicho
+
+- Residuo = 0 (sobre la línea roja)
+    - Predicción perfecta
+
+Un buen modelo lineal muestra puntos dispersos aleatoriamente, alrededor de la línea 0. 
+
+3. Q-Q plot de residuos
+
+- Compara cuantiles teóricos de una normal y cuantiles observados de los residuos.
+
+Se observa que los puntos siguen bastante bien la línea, a pesar de haber pequeñas desviaciones en las colas.
+
+4. Importancia relativa de variables
+
+```
+Impacto relativo = |coeficiente × desviación estándar de X|
+```
+Esto permite comparar variables en una escala común.
+
+Se observa que Ingresos es el principal driver del CLV. La Frecuencia es el segundo más importante. Satisfacción y Antigüedad tienen impacto positivo pero menor.
+
+**Resumen Ejecutivo:**
+
+![resumen-ejecutivo](IMG-P4/paso5.PNG)
+
+El modelo explica la gran mayoría del CLV y cumple los supuestos estadísticos necesarios para una inferencia confiable.
+
+## Reflexión final
+
+El modelo de regresión lineal desarrollado presenta un alto poder explicativo y un buen desempeño predictivo, respaldado tanto por métricas cuantitativas como por diagnósticos visuales. Los supuestos estadísticos se cumplen adecuadamente y la interpretación de los coeficientes permite identificar a los ingresos y la frecuencia de compra como los principales determinantes del CLV. Finalmente, el modelo permite estimar el valor esperado de clientes individuales, aportando información relevante para la toma de decisiones comerciales.
 
 
 ---
