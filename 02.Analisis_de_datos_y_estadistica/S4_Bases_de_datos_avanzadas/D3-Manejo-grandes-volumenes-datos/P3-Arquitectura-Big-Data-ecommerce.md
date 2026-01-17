@@ -249,8 +249,8 @@ Tecnologías:
 
     Ejemplo: ventas por región, categoría, campaña, año.
 
-    >[!NOTE]
-    > Amazon Redshift es la alternativa que ofrece AWS. Es un Data Warehouse columnar administrado para análisis OLAP. En un entorno AWS, Amazon Redshift puede cumplir el rol de motor analítico equivalente a soluciones open-source como ClickHouse o Apache Druid, actuando como Data Warehouse y capa serving para consultas OLAP. Sin embargo, Redshift no reemplaza las capas de streaming ni batch, sino que consume datos previamente procesados por servicios como Kinesis, EMR o Airflow.
+>[!NOTE]
+> Amazon Redshift es la alternativa que ofrece AWS. Es un Data Warehouse columnar administrado para análisis OLAP. En un entorno AWS, Amazon Redshift puede cumplir el rol de motor analítico equivalente a soluciones open-source como ClickHouse o Apache Druid, actuando como Data Warehouse y capa serving para consultas OLAP. Sin embargo, Redshift no reemplaza las capas de streaming ni batch, sino que consume datos previamente procesados por servicios como Kinesis, EMR o Airflow.
 
 - Elasticsearch: es un motor de búsqueda y análisis. Permite búsqueda y filtros rápidos.
 
