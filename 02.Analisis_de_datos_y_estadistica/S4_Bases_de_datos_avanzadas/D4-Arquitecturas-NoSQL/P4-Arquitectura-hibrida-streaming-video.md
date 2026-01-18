@@ -238,7 +238,11 @@ GET /contenido/_search
 ```
 
 
-Este bloque ejemplifica cómo cada componente de la arquitectura híbrida materializa los requisitos previamente definidos mediante modelos y lenguajes específicos para cada tipo de dato. PostgreSQL se utiliza para representar datos transaccionales críticos que requieren consistencia fuerte y relaciones estructuradas; Cassandra modela eventos de reproducción como series de tiempo orientadas a escritura masiva y escalabilidad horizontal; Neo4j expresa relaciones complejas entre usuarios y contenido para soportar sistemas de recomendación; Redis actúa como capa de serving de baja latencia para resultados precomputados; y Elasticsearch permite la indexación y búsqueda eficiente de contenido y métricas. En conjunto cada tecnología se emplea según su fortaleza, evitando sobrecargar un único motor con responsabilidades heterogéneas.
+Este bloque ejemplifica cómo cada componente de la arquitectura híbrida materializa los requisitos previamente definidos mediante modelos y lenguajes específicos para cada tipo de dato. 
+
+PostgreSQL se utiliza para representar datos transaccionales críticos que requieren consistencia fuerte y relaciones estructuradas. Cassandra modela eventos de reproducción como series de tiempo orientadas a escritura masiva y escalabilidad horizontal. Neo4j expresa relaciones complejas entre usuarios y contenido para soportar sistemas de recomendación. Redis actúa como capa de serving de baja latencia para resultados precomputados. Elasticsearch permite la indexación y búsqueda eficiente de contenido y métricas. 
+ 
+ En conjunto cada tecnología se emplea según su fortaleza, evitando sobrecargar un único motor con responsabilidades heterogéneas.
 
 ## Implementación de patrón CQRS:
 
