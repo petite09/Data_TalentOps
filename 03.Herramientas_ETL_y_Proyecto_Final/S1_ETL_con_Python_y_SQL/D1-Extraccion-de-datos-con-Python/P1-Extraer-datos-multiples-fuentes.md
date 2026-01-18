@@ -26,7 +26,7 @@ Esta función abre un archivo CSV, lee cada fila utilizando los encabezados como
 ![clientes-leidos](IMG-P1/clientes-leidos.PNG)
 
 
-El archivo [``clientes.csv``](C:\Users\Usuario\Downloads\Beca_TalentOps\Data_TalentOps\03.Herramientas_ETL_y_Proyecto_Final\S1_ETL_con_Python_y_SQL\D1-Extraccion-de-datos-con-Python\IMG-P1\clientes.csv), fue generado con datos sintéticos para simular una fuente estructurada externa. Cada cliente posee un identificador, nombre y una ciudad asignada aleatoriamente, permitiendo probar la extracción desde archivos planos dentro del flujo ETL.
+El archivo [clientes.csv](IMG-P1/clientes.csv), fue generado con datos sintéticos para simular una fuente estructurada externa. Cada cliente posee un identificador, nombre y una ciudad asignada aleatoriamente, permitiendo probar la extracción desde archivos planos dentro del flujo ETL.
 
 
 ## Simular extracción de API:
