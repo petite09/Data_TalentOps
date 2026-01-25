@@ -180,6 +180,9 @@ Un DAG por definición es acíclico, es decir, no puede haber bloques entre tare
 - El scheduler no podría planificar correctamente el orden de ejecución y provocaría bloqueos en el flujo.
 
 
+>[!IMPORTANT]
+> La propiedad acíclica del DAG se aplica únicamente a las **dependencias entre tareas**. El código ejecutado dentro de cada tarea puede contener bucles, condiciones y lógica compleja, ya que Airflow trata cada tarea como una unidad atómica de ejecución.
+
 ---
 Verificación: ¿Qué diferencia hay entre un DAG y un simple script de Python? ¿Por qué es importante que los DAGs no tengan ciclos?
 
