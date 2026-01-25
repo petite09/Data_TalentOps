@@ -8,4 +8,5 @@ Los contenidos del curso están divididos en 3:
 
 Cada carpeta de contenido contiene 4 carpetas que representan 1 semana de trabajo y en cada una de estas se encuentran los ejercicios de práctica diarios.
 
+Además cada ejercicio práctico va acompañado de anotaciones sobre conceptos vistos a lo largo del curso, algunas recomendaciones o consideraciones a tener en cuenta para cada actividad, junto con pantallazos como evidencia de los distintos ejercicios.
 
