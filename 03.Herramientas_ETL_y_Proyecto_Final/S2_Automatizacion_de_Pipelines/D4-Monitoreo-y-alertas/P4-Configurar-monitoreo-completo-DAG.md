@@ -215,7 +215,8 @@ airflow tasks failed pipeline_monitorado 2024-01-01
 # Ver logs
 airflow tasks logs pipeline_monitorado procesar_datos 2024-01-01
 ```
-
+>[!NOTE]
+> Un SLA (Service Level Agreement o Acuerdo de Nivel de Servicio) es un contrato formal entre un proveedor de servicios y un cliente que define el nivel de rendimiento esperado, las métricas de calidad (como tiempo de actividad o respuesta) y las responsabilidades mutuas. Incluye sanciones económicas o compensaciones si no se cumplen los objetivos, garantizando transparencia y calidad. 
 
 Una vez creado se debe verificar que el DAG esté en la UI.
 
@@ -343,6 +344,54 @@ timezone.utcnow()
 
 La implementación de este DAG permitió evidenciar la importancia de una correcta configuración de servicios externos (como SMTP) y del uso de buenas prácticas de monitoreo, manejo de conexiones y control temporal, especialmente en entornos de desarrollo local.
 
+
+## Reflexiones finales
+
+**¿Qué métricas son más importantes para monitorear en un pipeline de datos?**
+Las métricas más relevantes dependen del objetivo del pipeline, pero hay algunas categorías relevantes:
+
+- Métricas de rendimiento:
+
+    - Tiempo total de ejecución del pipeline.
+    - Duración de cada tarea o etapa.
+    - Cumplimiento de SLAs.
+
+Esto permite detectar cuellos de botella y degradaciones de performance.
+
+- Métricas de volumen:
+
+    - Cantidad de registros procesados.
+    - Registros ingresados vs. registros exitosos.
+    - Registros fallidos u omitidos.
+
+Estas métricas ayudan a validar que el pipeline esté procesando la cantidad esperada de datos.
+
+- Métricas de calidad
+    - Tasa de éxito del procesamiento.
+    - Porcentaje de registros con errores o inconsistencias.
+    - Validación de reglas de negocio.
+
+Estas métricas aseguran la confiabilidad y consistencia de los datos entregados downstream.
+
+- Métricas de disponibilidad y confiabilidad
+
+    - Número de reintentos.
+    - Frecuencia de fallos.
+    - Tareas que fallan de manera recurrente.
+
+Esto permite evaluar la estabilidad del pipeline en el tiempo.
+
+**¿Cómo decidirías entre enviar alertas por email vs Slack vs SMS?**
+
+La elección del canal de alerta va a depender de la criticidad del evento, la urgencia de respuesta y el público objetivo.
+
+- Email: recomendable para alertas informativas o de baja urgencia, útil para resumenes de ejecución, reportes diarios o notificaciones de éxito. No requiere atención inmediata.
+
+- Slack: ideal para alertas de urgencia media. Permite notificaciones en tiempo casi real, facilita la colaboración y la reacción del equipo técnica. Útil para fallos de tareas, validaciones incumplicas o SLAs en riesgo.
+
+- SMS: para alertas críticas y de alta urgencia, ya que garantiza visibilidad incluso fuera del horario laboral. Para casos como caídes del pipeline en producción o incidentes que requieren intervención inmediata.
+
+Un sistema de monitoreo efectivo combina métricas técnicas relevantes con canales de alerta adecuados al nivel de criticidad del evento, permitiendo una respuesta oportuna sin generar sobrecarga innecesaria de notificaciones.
 
 --- 
 
