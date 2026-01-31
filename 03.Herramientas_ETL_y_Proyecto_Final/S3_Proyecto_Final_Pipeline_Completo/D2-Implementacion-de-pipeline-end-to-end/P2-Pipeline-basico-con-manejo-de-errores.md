@@ -26,8 +26,7 @@ def ejecutar_pipeline_con_errores(pipeline):
 ```
 Se creó un [script](IMG-P2/Manejo_errores.py) básico para ejemplificar esto.
 
-
-![manejo_errores](manejo_errores.PNG)
+![manejo-errores](IMG-P2/manejo_errores.PNG)
 
 En este caso, el paso 2 del script simula un dato inválido (``email`` vacío). En el ``except ValidationError`` se registra el error con ``logger.error(...)``. El pipeline falla de forma explícita ante un error de validación para evitar persistir datos inválidos; el traceback aparece porque se re-lanza la excepción intencionalmente para detener la ejecución.
 
