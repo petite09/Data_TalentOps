@@ -1,0 +1,7 @@
+# Semana 10 - Automatización de Pipelines 🤖
+
+- Actividad Práctica 1: 📝  Crear tu primer DAG funcional. [P1-Introduccion-Apache-Airflow.md](https://github.com/petite09/Data_TalentOps/blob/main/03.Herramientas_ETL_y_Proyecto_Final/S2_Automatizacion_de_Pipelines/D1-Introduccion-Apache-Airflow/P1-Primer-DAG-funcional.md)
+- Actividad Práctica 2: 📝 Construir DAG con dependencias complejas. [P2-DAG-y-dependencias.md](https://github.com/petite09/Data_TalentOps/blob/main/03.Herramientas_ETL_y_Proyecto_Final/S2_Automatizacion_de_Pipelines/D2-DAG-y-dependencias/P2-DAG-con-dependencias-complejas.md)
+- Actividad Práctica 3: 📝 Crear DAG con operadores y sensores. [P3-Operadores-y-sensores.md](https://github.com/petite09/Data_TalentOps/blob/main/03.Herramientas_ETL_y_Proyecto_Final/S2_Automatizacion_de_Pipelines/D3-Operadores-y-sensores/P3-DAG-con-operadores-y-sensores.md)
+- Actividad Práctica 4: 📝 Configurar monitoreo completo en un DAG. [P4-Monitoreo-y-alertas](https://github.com/petite09/Data_TalentOps/blob/main/03.Herramientas_ETL_y_Proyecto_Final/S2_Automatizacion_de_Pipelines/D4-Monitoreo-y-alertas/P4-Configurar-monitoreo-completo-DAG.md)
+- Actividad Práctica 5: 📝Implementar DAG complejo con best practices. [P5-Pipelines-complejos-y-best-practices](https://github.com/petite09/Data_TalentOps/blob/main/03.Herramientas_ETL_y_Proyecto_Final/S2_Automatizacion_de_Pipelines/D5-Pipelines-complejos-y-best-practices/P5-Implementar-DAG-complejo-con-best-practices.md)
