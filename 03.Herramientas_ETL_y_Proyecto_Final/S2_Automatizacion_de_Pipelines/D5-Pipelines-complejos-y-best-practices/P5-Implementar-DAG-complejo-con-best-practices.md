@@ -186,6 +186,32 @@ jobs:
       "
 ```
 
+### Reflexiones finales
+
+**¿Cuándo usarías SubDAGs vs TaskGroups?**
+
+SubDAG (sub-workflow):
+Es un “DAG dentro de otro DAG” que se ejecuta como una unidad. Se usaba para modularizar pipelines grandes, pero puede traer complejidad extra (por ejemplo, programación/ejecución y mantenimiento más delicados). Es prefierible usarlos cuando se necesita encapsular un conjunto de tareas como un "subproceso" reutilizable o cuando el equipo ya tiene una convención clara y controlada para mantenerlos.
+
+TaskGroup:
+Es una forma de agrupar tareas visual y lógicamente dentro del mismo DAG, sin crear un DAG separado. Ayuda a ordenar la interfaz y a mantener el DAG más legible, pero sigue siendo un solo DAG. Es recomendable usarlas cuando se quiere organizar y hacer más legible un DAG grande, cuando las tareas están relacionadas y se quieren ver como un bloque o cuando se quiere modularidad pero sin agregar complejidad operativa.
+
+
+**¿Qué estrategias de escalado son más efectivas para diferentes tipos de carga de trabajo?**
+
+En Airflow/pipelines, las estrategias típicas del material son: paralelización horizontal, pools de recursos y escalado vertical.
+
+- Carga “divisible” (muchos archivos/particiones similares): Paralelización horizontal
+
+Procesas particiones en paralelo (ej: partition_1…partition_10) y luego unes resultados. Ideal cuando el trabajo se puede dividir sin depender de un solo proceso.
+
+- Carga pesada pero con riesgo de saturación (CPU/memoria/I/O): Escalado vertical.
+
+Útil para tareas muy pesadas que no se paralelizan fácil, o que necesitan mucha memoria/CPU.
+
+- Carga con límites o cuellos de botella compartidos (DB, APIs, rate limits): Pools de recursos
+
+Se limita cuántas tareas pueden correr al mismo tiempo para no “botar” una base de datos o exceder cuotas de API.
 
 --- 
 Verificación: ¿Cuándo usarías SubDAGs vs TaskGroups? ¿Qué estrategias de escalado son más efectivas para diferentes tipos de carga de trabajo?
