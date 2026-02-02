@@ -215,6 +215,19 @@ echo "✅ Deployment to $ENVIRONMENT completed successfully"
 
 ```
 
+
+### Reflexiones finales
+
+**¿Qué diferencias hay entre CI/CD para aplicaciones web vs pipelines de datos?**
+
+En aplicaciones web, CI/CD se enfoca principalmente en desplegar código que interactúa con usuarios, por lo que se priorizan pruebas de interfaz, APIs y experiencia de usuario. En cambio, en pipelines de datos el foco está en la confiabilidad del flujo de datos, validando transformaciones, esquemas y resultados, ya que los errores pueden no ser visibles de inmediato, pero sí afectar análisis y decisiones posteriores.
+
+**¿Cómo asegurar que los tests de DAGs sean rápidos y confiables?**
+
+Para lograrlo, se podría testear la lógica de las tareas de forma aislada, usando datos pequeños o simulados, sin depender de sistemas externos. Además, separar pruebas de estructura (que el DAG carga correctamente) de pruebas de lógica ayuda a mantener los tests simples y rápidos.
+
+
+
 --- 
 
 Verificación: ¿Qué diferencias hay entre CI/CD para aplicaciones web vs pipelines de datos? ¿Cómo asegurar que los tests de DAGs sean rápidos y confiables?

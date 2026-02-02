@@ -266,10 +266,21 @@ def create_post_mortem_template(incident_data):
 
 ```
 
+### Reflexiones finales
+
+**¿Cuál es la diferencia entre un incidente que requiere respuesta inmediata vs uno que puede esperar?**
+
+Un incidente requiere respuesta inmediata cuando interrumpe un servicio crítico, genera pérdida de datos o afecta a usuarios finales. En cambio, puede esperar si el impacto es limitado, existe una solución temporal o no afecta operaciones esenciales.
+
+**¿Cómo decidir cuándo escalar un incidente a niveles superiores?**
+
+Se escala cuando el equipo inicial no puede resolver el problema, cuando el impacto crece o cuando se requiere autorización, recursos o conocimientos especializados. La escalación busca reducir el tiempo de resolución.
+
 --- 
 
 
 Verificación: ¿Cuál es la diferencia entre un incidente que requiere respuesta inmediata vs uno que puede esperar? ¿Cómo decidir cuándo escalar un incidente a niveles superiores?
+
 
 Requerimientos:
 Sistema de alertas configurado (PagerDuty, OpsGenie)

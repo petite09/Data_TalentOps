@@ -221,6 +221,18 @@ groups:
       description: "Pipeline data is more than 24 hours old"
 ```
 
+
+### Reflexiones finales
+
+**¿Qué métricas son más importantes para monitorear en un pipeline de datos vs una aplicación web?**
+
+En pipelines de datos, las métricas clave suelen estar relacionadas con volumen de datos procesados, tiempos de ejecución, errores y calidad de datos. En aplicaciones web, en cambio, se priorizan métricas como latencia, disponibilidad, tasa de errores y experiencia del usuario. En datos importa que el proceso se lleve a cabo exitosamente y en web importa que el usuario no note problemas.
+
+**¿Cómo decidir cuándo escalar de warning a critical en las alertas?**
+
+Un warning suele indicar una desviación leve o preventiva, mientras que una alerta critical se activa cuando el problema impacta directamente el negocio o bloquea el sistema. La decisión de escalar depende del impacto, la urgencia y la posibilidad de recuperación automática.
+
+
 ---
 Verificación: ¿Qué métricas son más importantes para monitorear en un pipeline de datos vs una aplicación web? ¿Cómo decidir cuándo escalar de warning a critical en las alertas?
 

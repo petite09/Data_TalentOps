@@ -260,6 +260,36 @@ Sí, usando la herramienta de ad-hoc queries. Contacta a tu administrador para a
 - **Solicitudes nuevas**: product-analytics@empresa.com
 ```
 
+
+### Reflexiones finales:
+
+**¿Cómo adaptarías una presentación técnica para diferentes audiencias?**
+
+Una presentación técnica debe adaptarse según el nivel de conocimiento y los objetivos de cada audiencia:
+
+- Audiencia técnica:
+
+Se priorizan detalles de implementación, reglas de validación, estructuras de datos, manejo de errores y métricas técnicas. El foco está en *cómo funciona la solución*.
+
+- Audiencia de negocio:
+
+Se prioriza el impacto en procesos, mejora en calidad de datos, reducción de tiempos y beneficios operativos. Se minimiza el detalle técnico y se responde al *¿para qué sirve?* y *¿qué valor aporta?*.
+
+- Audiencia ejecutiva:
+
+Se presenta un resumen ejecutivo con resultados clave, métricas de impacto, riesgos mitigados y beneficios estrtéficos. El foco está en la *toma de decisiones*.
+
+
+**¿Qué elementos son más importantes en la documentación: código comentado, README, o diagramas?**
+
+Cada elemento cumple un rol distinto, por lo que no podría decir que uno es más importante que otro.
+
+- Código comentado/docstrings: son clave para los desarrolladores, ya que explican la lógica interna y facilitan el mantenimiento.
+- REAMDE: Es el punto de entrada al proyecto. Explica propósito, contexto, uso y estructura general.
+- Diagramas: ayudan a comprender rápidamente flujos, dependencias y arquitecturas, especialmente para audiencias no técnicas.
+
+Combinar los 3 hace que la documentación sea más clara y efectiva.
+
 --- 
 Verificación: ¿Cómo adaptarías una presentación técnica para diferentes audiencias? ¿Qué elementos son más importantes en la documentación: código comentado, README, o diagramas?
 

@@ -212,6 +212,27 @@ kubectl delete -f k8s/blue-environment.yml
 echo "🎉 Deployment completado exitosamente!"
 ```
 
+### Reflexiones finales
+
+**¿En qué situaciones preferirías escalado horizontal vs vertical?**
+
+El escalado vertical es útil cuando el sistema es "simple" y necesita más capacidad puntual (por ejemplo, más memoria o CPU). El escalado horizontal es preferible cuando se requiere mayor resiliencia y crecimiento sostenido, ya que permite distribuir la carga entre múltiples instancias.
+
+Por ejemplo, si se tiene un pipeline de datos pequeños que corre una vez al día, pero empieza a fallar porque se quedó sin memoria al procesar un archivo más grande de lo normal, sería una buena idea aumentar la memoria o CPU de la misma máquina donde corre el pipeline. Hay que considerar que este tipo de escalado tiene limitaciones físicas.
+
+Si ahora ese pipeline por ejemplo crece y debe proccesar datos desde muchas fuentes en paralelo, varias veces al día. En vez de usar una sola máquina más grande, se podrían agregar varias instancias que comparten la carga. Si una falla, las otra siguen funcionando, lo que mejora la resiliencia y permite crecer en el tiempo. El escalado horizontal es preferible cuando se busca mayor tolerancia a fallos y crecimiento sostenido del sistema.
+
+**¿Cómo asegurar compatibilidad backward cuando cambias esquemas de datos?**
+
+>[!NOTE]
+> La compatibilidad backward (o retrocompatibilidad) es la capacidad de un sistema, software o hardware nuevo para funcionar con archivos, datos o dispositivos diseñados para versiones anteriores. Garantiza que las actualizaciones no rompan flujos de trabajo existentes, permitiendo, por ejemplo, jugar juegos antiguos en consolas nuevas. 
+
+Asegurar la compatibilidad backward significa que los sistemas antiguos sigan funcionando aunque el esquema haya cambiado, sin obligarlos a actualizarse de inmediato.
+
+Para mantener compatibilidad, es importante evitar eliminar o modificar campos existentes en los esquemas de datos de forma abrupta, y preferir agregar nuevos campos o versiones de esquemas. Esto permite que sistemas antiguos sigan funcionando mientras se adaptan al cambio.
+
+
+
 
 --- 
 
