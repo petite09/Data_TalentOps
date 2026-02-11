@@ -7,11 +7,11 @@
 
 En este caso se trabajó con los ejemplos de tablas de los días anteriores.
 
-- Tabla clientes y pedidos: [Actividad práctica día 2](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P2-Consultas-bbdd.md)
+- Tabla clientes y pedidos: [Actividad práctica día 2](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/D2-Consultas-basicas/P2-Consultas-bbdd.md)
  
- - Tabla productos: [Actividad práctica día 3](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P3-Consultas-joins.md)
+ - Tabla productos: [Actividad práctica día 3](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/D3-Joins/P3-Consultas-joins.md)
 
- - Tabla detalle_pedidos: [Actividad práctica día 4](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P4-Analisis-agregado-datos.md)
+ - Tabla detalle_pedidos: [Actividad práctica día 4](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/D4-Funciones-de-agregacion/P4-Analisis-agregado-datos.md)
 
 ```sql
 -- Tabla de categorías
