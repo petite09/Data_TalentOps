@@ -2,7 +2,7 @@
 
 ## Crear datasets relacionados:
 
-```
+```python
 import pandas as pd
 import numpy as np
 
@@ -45,7 +45,7 @@ La imagen muestra la cantidad de filas y columnas de cada dataframe creado.
 
 ## Filtrado avanzado con query():
 
-```
+```python
 # Ventas del mes actual con query
 ventas_recientes = ventas.query('fecha >= "2024-01-05"')
 print(f"\nVentas recientes: {len(ventas_recientes)}")
@@ -64,7 +64,7 @@ Para el caso de los productos caros, se definió un ``precio_limite = 100``.En `
 
 ## Agrupación y agregación:
 
-```
+```python
 # Ventas por producto
 ventas_por_producto = ventas.groupby('id_producto')['cantidad'].sum()
 print(f"\nVentas por producto:\n{ventas_por_producto}")
@@ -79,7 +79,7 @@ print(f"\nVentas por producto:\n{ventas_por_producto}")
 Como resultado se obtiene los ``id_producto`` como índice junto a la suma de cantidad como tipo de dato numérico.
 
 
-```
+```python
 # Estadísticas por cliente
 stats_por_cliente = ventas.groupby('id_cliente').agg({
     'cantidad': ['sum', 'mean'],
@@ -97,7 +97,7 @@ print(f"\nEstadísticas por cliente:\n{stats_por_cliente}")
 
 ## Merge para análisis completo:
 
-```
+```python
 # Unir ventas con productos
 ventas_productos = pd.merge(ventas, productos, on='id_producto')
 
@@ -118,7 +118,7 @@ print(f"\nAnálisis completo (primeras 5 filas):\n{analisis_completo.head()}")
 
 Esto entrega un DataFrame que contiene 5 filas y 11 columnas.
 
-```
+```python
 # Análisis por ciudad
 ventas_por_ciudad = analisis_completo.groupby('ciudad')['total'].sum()
 print(f"\nVentas totales por ciudad:\n{ventas_por_ciudad}")
@@ -133,7 +133,7 @@ print(f"\nVentas totales por ciudad:\n{ventas_por_ciudad}")
 
 # Filtrado final:
 
-```
+```python
 # Clientes con compras > 1000
 clientes_top = analisis_completo.groupby(['id_cliente', 'nombre_y'])['total'].sum()
 clientes_top = clientes_top[clientes_top > 1000]
@@ -149,7 +149,7 @@ Pandas en este caso renombra los duplicados así:
 >[!NOTE]
 > Para evitar confusiones, una opción es renombrar las columnas después del merge. 
 
-```
+```python
 analisis_completo = analisis_completo.rename(columns={
     'nombre_y': 'nombre_cliente',
     'nombre_x': 'producto'

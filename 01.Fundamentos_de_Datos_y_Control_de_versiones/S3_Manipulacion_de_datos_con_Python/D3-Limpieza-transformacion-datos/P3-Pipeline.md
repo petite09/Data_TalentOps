@@ -2,7 +2,7 @@
 
 ## Crear dataset con problemas comunes:
 
-```
+```python
 import pandas as pd
 import numpy as np
 
@@ -28,7 +28,7 @@ Se observa que hay algunos nombres, id y correos repetidos e inconsistencia en l
 
 ## Inspeccionar y diagnosticar problemas:
 
-```
+```python
 print(f"\nTipos de datos: {df.dtypes}")
 print(f"\nDuplicados por id: {df['id'].duplicated().sum()}")
 print(f"Duplicados completos: {df.duplicated().sum()}")
@@ -60,7 +60,7 @@ Respecto a los valores únicos, ``{df['departamento'].unique()}`` muestra todos 
 
 ## Limpiar duplicados:
 
-```
+```python
 # Eliminar duplicados basados en id y email
 df_limpio = df.drop_duplicates(subset=['id', 'email'], keep='first').copy()
 print(f"\nDespués de eliminar duplicados: {len(df_limpio)} filas")
@@ -84,7 +84,7 @@ Como se vió en la sección anterior, hay duplicados en la columna 'id'. Sin emb
 
 ## Corregir tipos de datos y formatos:
 
-```
+```python
 # Convertir edad a numérico
 df_limpio['edad'] = pd.to_numeric(df_limpio['edad'], errors='coerce')
 
@@ -109,7 +109,7 @@ Al ver los tipos de datos, se comprueba que ``'edad'`` ahora es numérico. ✅
 ## Crear columnas calculadas
 
 
-```
+```python
 # Calcular salario mensual y anual
 df_limpio['salario_mensual'] = df_limpio['salario'] / 12
 df_limpio['categoria_edad'] = pd.cut(df_limpio['edad'], 
@@ -147,14 +147,14 @@ Podemos ver que el nombre de "Ana García" aparece dos veces, sin embargo, de ac
 
 La fila 5 (índice 4) no es duplicado según el criterio anterior, porque si bien tienen el mismo mail, el ``'id'`` es diferente. Por lo tanto, en estos datos, hay dos Anas con distinto id, así que pandas asume que son personas distintas. Sin embargo, al ver la edad, el salario y el correo no es extraño pensar que corresponden a la misma persona. Si quisiéramos quedarnos con una sola Ana, al ver que tienen el mismo email, podríamos eliminar ese duplicado del dataframe de la siguiente manera:
 
-```
+```python
 df_final = df_limpio.drop_duplicates(subset=['email'], keep='first').copy()
 print("Con columnas calculadas y sin Ana duplicada:")
 print(df_final[['nombre', 'edad', 'categoria_edad', 'salario', 'salario_mensual']])
 ```
 ![df_final](IMG-P3/df_final.PNG)
 
-
+---
 Verificación: Compara el dataset original con el limpio y confirma que todos los problemas identificados han sido resueltos. ✅
 
 Requerimientos:

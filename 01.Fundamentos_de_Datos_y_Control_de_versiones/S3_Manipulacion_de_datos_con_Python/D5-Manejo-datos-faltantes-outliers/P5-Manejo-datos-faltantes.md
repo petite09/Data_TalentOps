@@ -5,7 +5,7 @@
 
 ## Crear dataset con problemas realistas:
 
-```
+```python
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -71,7 +71,7 @@ Se puede observar que el DataFrame entregado contiene 1000 filas y 6 columnas. A
 
 ## Analizar datos faltantes:
 
-```
+```python
 # Análisis detallado de missing values
 print("Porcentaje de datos faltantes:")
 print((datos.isnull().sum() / len(datos) * 100).round(2))
@@ -82,7 +82,7 @@ print((datos.isnull().sum() / len(datos) * 100).round(2))
 
 Se puede ver que para la columna ``salario`` hay un 9,5% de datos faltantes y para la columna ``horas_trabajo`` un 4,6 %.
 
-```
+```python
 # Patrón de missing values
 import missingno as msno
 import matplotlib.pyplot as plt
@@ -108,7 +108,7 @@ En la figura se observa que la columna ``salario`` y ``horas_trabajo`` contienen
 
 Esta visualización permite identificar rápidamente patrones de ausencia de datos y validar la calidad del dataset antes de proceder con imputaciones.
 
-```
+```python
 # Análisis por departamento
 print("\nMissing values por departamento:")
 print(datos.groupby('departamento').apply(lambda x: x.isnull().sum()))
@@ -125,9 +125,10 @@ Esto complementa la información del gráfico anterior y la enriquece al agrupar
 
 Acá se observa que el departamento de ``Ventas`` tiene la mayor cantidad de datos faltantes en la columna ``salario`` (34) y el departamento ``IT`` tiene la menor cantidad (18). En el caso de las ``horas_trabajo``, la mayor cantidad de datos faltantes se encuentra en el departamento de ``Marketing`` (17) y la menor en ``IT``(3).
 
-```
-#Imputación de valores faltantes:
 
+## Imputación de valores faltantes:
+
+```python
 # Imputación por media para horas_trabajo
 media_horas = datos['horas_trabajo'].mean()
 print("\nMedia horas:")
@@ -137,7 +138,7 @@ datos['horas_trabajo'] = datos['horas_trabajo'].fillna(media_horas)
 - ``datos['horas_trabajo'].mean()``: permite calcular la media de ``horas_trabajo``.
 - ``.fillna(media_horas)``: rellena los NaN con la media calculada anteriormente.
 
-```
+```python
 # Imputación por mediana para salario (más robusto a outliers)
 mediana_salario = datos['salario'].median()
 print("\nMediana salario:")
@@ -150,7 +151,7 @@ datos['salario'] = datos['salario'].fillna(mediana_salario)
 
 Estos dos ejemplos de imputación son imputaciones simples (media y mediana).
 
-```
+```python
 # Verificar que no queden missing values
 print(f"\nValores faltantes después de imputación: {datos.isnull().sum().sum()}")
 ```
@@ -162,7 +163,7 @@ Se suman todos los valores faltantes y esta suma al ser = 0, indica que se imput
 
 ## Detección de outliers:
 
-```
+```python
 # Función para detectar outliers usando IQR
 def detectar_outliers_iqr(data, columna):
     Q1 = data[columna].quantile(0.25)
@@ -205,7 +206,7 @@ Finalmente, se observa que en la columna ``salario`` hay 55 valores outliers (55
 
 ## Manejo de outliers:
 
-```
+```python
 # Para horas_trabajo: cap at reasonable maximum
 max_horas_normales = 60
 datos.loc[datos['horas_trabajo'] > max_horas_normales, 'horas_trabajo'] = max_horas_normales
@@ -226,7 +227,7 @@ Luego hay una transformación logarítima en la columna ``salario``:
 
 - ``np.log1p``: esto significa log(1+x) y permite comprimir la escala en ``salario`` para reducir el impacto de outliers.
 
-```
+```python
 # Comparar estadísticas antes y después
 print(f"\nEstadísticas de salario original:")
 print(datos['salario'].describe().round(2))
@@ -236,11 +237,12 @@ print(datos['salario_log'].describe().round(2))
 ``` 
 
 ![estadisticas-de-salario](IMG-P5/estadisticas-de-salario.PNG)
+
 ![estadisticas-de-salario-transformado](IMG-P5/estadisticas-de-salario-transformado.PNG)
 
 Al comparar ambas estadísticas se observa que el salario transformado tiene valores mucho más bajos, comprobando que la transformación logarítmica reduce la variabilidad provocada por los outliers.
 
-```
+```python
 # Verificar reducción de outliers
 outliers_salario_log = detectar_outliers_iqr(datos, 'salario_log')
 print(f"\nOutliers en salario log-transformado: {outliers_salario_log.sum()}")

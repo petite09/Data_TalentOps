@@ -7,7 +7,7 @@
 
 Para esto se creó el archivo [crear-datos.py](crear-datos.py):
 
-```
+```python
 import pandas as pd
 import sqlite3
 import json
@@ -67,7 +67,7 @@ Al ejecutar el archivo ``crear-datos.py``, se crearon 4 archivos:
 
 Se creó un archivo llamado [extraer-datos.py](extraer-datos.py) con todos los bloques de código para extraer los datos de las distintas fuentes en un solo script. 
 
-```
+```python
 # Desde CSV
 df_csv = pd.read_csv('ventas.csv')
 print("Desde CSV:")
@@ -93,7 +93,7 @@ DataFrame entregado:
 
 ![desde-excel](IMG-P2/03-excel.PNG)
 
-```
+```python
 # Desde JSON
 df_json = pd.read_json('productos.json')
 print("\nDesde JSON:")
@@ -104,7 +104,7 @@ DataFrame entregado:
 
 ![desde-json](IMG-P2/04-json.PNG)
 
-```
+```python
 # Desde SQLite
 conn = sqlite3.connect('ventas.db')
 df_sql = pd.read_sql('SELECT * FROM pedidos', conn)
@@ -122,7 +122,7 @@ DataFrame entregado:
 
 Se creó el archivo [simular-api.py](simular-api.py) con el siguiente código:
 
-```
+```python
 # Simular API response
 api_response = {
     'status': 'success',
@@ -154,12 +154,8 @@ Finalmente, se confirma que todos los métodos de extracción funcionan correcta
 
 ### Requerimientos:
 
-Python con Pandas instalado
-
-requests (opcional para APIs): pip install requests
-
-openpyxl (para Excel): pip install openpyxl
-
-SQLite incluido en Python estándar
-
-Archivos de ejemplo o acceso a bases de datos
+- Python con Pandas instalado
+- requests (opcional para APIs): pip install requests
+- openpyxl (para Excel): pip install openpyxl
+- SQLite incluido en Python estándar
+- Archivos de ejemplo o acceso a bases de datos
