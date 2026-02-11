@@ -20,7 +20,7 @@ Una cadena de tiendas minoristas quiere integrar datos de:
 
 ### Diseñar esquema destino:
 
-```
+```sql
 -- Tabla unificada de hechos de ventas
 CREATE TABLE ventas_consolidadas (
     id_venta INTEGER PRIMARY KEY,
