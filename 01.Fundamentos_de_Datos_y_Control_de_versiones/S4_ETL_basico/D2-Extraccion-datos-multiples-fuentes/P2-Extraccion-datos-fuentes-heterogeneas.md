@@ -7,7 +7,7 @@ Ejercicio práctico para aplicar los conceptos aprendidos.
 
 ## Crear datos de ejemplo en diferentes formatos:
 
-```
+```python
 import pandas as pd
 import sqlite3
 import json
@@ -26,7 +26,7 @@ ventas_csv.to_csv('ventas.csv', index=False)
 - ``to_csv`` guarda el DataFrame en un archivo CSV.
 - ``index=False``: indica a pandas que no incluya la columna índice en el archivo.
 
-```
+```python
 # Crear Excel con múltiples hojas
 clientes_df = pd.DataFrame({ 
     'id_cliente': [1, 2, 3],
@@ -43,7 +43,7 @@ with pd.ExcelWriter('datos.xlsx') as writer:
 - El archivo CSV``ventas_csv`` creado anteriormente se incluye en una de las hojas de este excel, llamada ``'Ventas'``.
 - ``with pd.ExcelWriter('datos.xlsx') as writer:`` crea un objeto ExcelWriter que lo permite guardar varios DataFrames en un mismo archivo, cada uno en una hoja distinta.
 
-```
+```python
 # Crear JSON
 productos_json = [
     {'id': 101, 'nombre': 'Laptop', 'categoria': 'Electrónica'},
@@ -60,7 +60,7 @@ with open('productos.json', 'w') as f:
 - ``json.dump(productos_json, f)``: toma la estructura Python productos_json y la convierte a formato JSON en el archivo.
 
 
-```
+```python
 # Crear base de datos SQLite
 conn = sqlite3.connect('ventas.db')
 pedidos_df = pd.DataFrame({
@@ -84,7 +84,7 @@ conn.close()
 
 ## Extraer desde cada fuente:
 
-```
+```python
 # Desde CSV
 df_csv = pd.read_csv('ventas.csv')
 print("Desde CSV:")
@@ -96,7 +96,7 @@ print(df_csv.head())
 - Se lee el archivo y muestra las primeras 5 filas del DataFrame.
 - Se observa que contiene información de las ventas distribuidas en 3 columnas.
 
-```
+```python
 # Desde Excel (hoja específica)
 df_excel_ventas = pd.read_excel('datos.xlsx', sheet_name='Ventas')
 df_excel_clientes = pd.read_excel('datos.xlsx', sheet_name='Clientes')
@@ -115,7 +115,7 @@ print(df_excel_clientes.head())
 ```
 ![desde-excel-clientes](IMG-P2/desde-excel-clientes.PNG)
 
-```
+```python
 # Desde JSON
 df_json = pd.read_json('productos.json')
 print("\nDesde JSON:")
@@ -127,7 +127,7 @@ print(df_json)
 - Lee el archivo JSON y lo convierte en un DataFrame.
 - Como el archivo JSON es una lista de objetos ({...}), cada objeto es una fila del DataFrame.
 
-```
+```python
 # Desde SQLite
 conn = sqlite3.connect('ventas.db')
 df_sql = pd.read_sql('SELECT * FROM pedidos', conn)
@@ -156,7 +156,7 @@ api_response = {
 ```
 - Se está simulando la respuesta de una API real.
 
-```
+```python
 # Simular consumo de API
 import json
 df_api = pd.DataFrame(api_response['data'])
