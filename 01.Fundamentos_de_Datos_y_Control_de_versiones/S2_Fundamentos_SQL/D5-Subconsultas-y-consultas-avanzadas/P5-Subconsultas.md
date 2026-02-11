@@ -13,7 +13,7 @@ En este caso se trabajó con los ejemplos de tablas de los días anteriores.
 
  - Tabla detalle_pedidos: [Actividad práctica día 4](https://github.com/petite09/Data_TalentOps/blob/main/01.Fundamentos_de_Datos_y_Control_de_versiones/S2_Fundamentos_SQL/P4-Analisis-agregado-datos.md)
 
-```
+```sql
 -- Tabla de categorías
 CREATE TABLE categorias (
     id INTEGER PRIMARY KEY,
@@ -45,7 +45,7 @@ Podemos verificar las tablas de nuestra base de datos usando ``.tables``
 ![verificar_tablas](IMG-P5/sqlite37.PNG)
 
 
-```
+```sql
 UPDATE productos SET categoria_id = 1 WHERE nombre LIKE '%Laptop%' OR nombre LIKE '%Monitor%';
 UPDATE productos SET categoria_id = 2 WHERE nombre LIKE '%Mouse%' OR nombre LIKE '%Teclado%';
 UPDATE productos SET categoria_id = 3 WHERE nombre LIKE '%Audífonos%';
@@ -68,7 +68,7 @@ En la segunda actualización se está pidiendo que todos aquellos productos cuyo
 
 ## Subconsultas en WHERE:
 
-```
+```sql
 -- Clientes que han comprado productos de Electrónica
 SELECT DISTINCT c.nombre, c.email
 FROM clientes c
@@ -87,7 +87,7 @@ WHERE c.id IN (
 
 La subconsulta que está dentro del ``WHERE`` devuelve clientes que compraron productos de Electrónica.
 
-```
+```sql
 WHERE c.id IN (
     SELECT DISTINCT p.cliente_id
     FROM pedidos p
@@ -102,7 +102,7 @@ Esta parte solicita los ``cliente_id`` de la tabla ``pedidos``, alias p.
 Además, hay 3 JOINS, que por defecto corresponden a ``INNER JOIN``, es decir, que se devuelven solo filas donde haya coincidencias en todas la tablas involucradas.El segundo ``WHERE`` filtra el nombre de la categoría electrónica.
 Por lo tanto, esta subconsulta entrega aquellos clientes que hicieron pedidos de la categoría "Electrónica".
 
-```
+```sql
 SELECT DISTINCT c.nombre, c.email
 FROM clientes c
 WHERE c.id IN (IDs de clientes que compraron Electrónica)
@@ -116,7 +116,7 @@ Es como pedir: Muestra todos los clientes cuyo ID esté en esta lista de cliente
 ![consulta_WHERE_1](IMG-P5/sqlite40.PNG)
 
 ---
-```
+```sql
 -- Productos con precio por encima del promedio de su categoría
 SELECT p.nombre, p.precio, cat.nombre as categoria
 FROM productos p
@@ -130,7 +130,7 @@ WHERE p.precio > (
 
 Este ejercicio busca mostrar aquellos productos cuyo precio es mayor que el precio promedio de su propia categoría.
 
-```
+```sql
 SELECT p.nombre, p.precio, cat.nombre as categoria
 ```
 Esta parte solo indica qué es lo que se mostrará:
@@ -138,13 +138,13 @@ Esta parte solo indica qué es lo que se mostrará:
 - precio
 - nombre de la categoría del producto
 
-```
+```sql
 FROM productos p
 JOIN categorias cat ON p.categoria_id = cat.id
 ```
 Esto nos indica que debemos usar los datos de la tabla ``productos`` pero que además se hace un ``JOIN`` (INNER JOIN) con la tabla ``categorias``, donde se emparejan mediante ``p.categoria_id`` (FOREIGN KEY) en la tabla `` productos`` y ``cat.id`` (PRIMARY KEY) en la tabla ``categorias``.
 
-```
+```sql
 WHERE p.precio > (
     SELECT AVG(p2.precio)
     FROM productos p2
@@ -163,7 +163,7 @@ En este caso se observa que *Lapto Dell* tiene un precio de 1200, valor que es m
 
 Si queremos verificar los promedios de los precios por categoría podemos hacer la siguiente consulta:
 
-```
+```sql
 SELECT cat.nombre AS categoria, AVG(p.precio) AS precio_promedio
 FROM productos p
 JOIN categorias cat ON p.categoria_id = cat.id
@@ -174,7 +174,7 @@ GROUP BY cat.id, cat.nombre;
 
 Otra opción es no unir las tablas de productos y categorías:
 
-```
+```sql
 SELECT categoria_id, AVG(precio)
 FROM productos
 GROUP BY categoria_id;
@@ -186,7 +186,7 @@ Donde acá, en vez de aparecer el nombre de la categoría, solo aparece su id.
 
 ## Subconsultas correlacionadas:
 
-```
+```sql
 -- Para cada cliente, mostrar su pedido más reciente
 SELECT c.nombre, p.fecha_pedido, p.total
 FROM clientes c
@@ -200,7 +200,7 @@ WHERE p.fecha_pedido = (
 
 Esta consulta busca traer el pedido más reciente para cada cliente. Si un cliente tiene varios pedidos, queremos solo quedarnos con la fecha más reciente.
 
-```
+```sql
 SELECT c.nombre, p.fecha_pedido, p.total
 ```
 
@@ -209,7 +209,7 @@ Esto mostrará lo siguiente:
 - fecha del pedido
 - total del pedido
 
-```
+```sql
 FROM clientes c
 JOIN pedidos p ON c.id = p.cliente_id
 ```
@@ -218,7 +218,7 @@ Esta parte une cada cliente con todos sus pedidos correspondientes (se une la ta
 
 La subconsulta correlacionada es la siguiente:
 
-```
+```sql
 WHERE p.fecha_pedido = (
     SELECT MAX(p2.fecha_pedido)
     FROM pedidos p2
@@ -239,7 +239,7 @@ En este ejemplo, la subconsulta depende del valor de la fila actual del SELECT e
 
 ## Uso de EXISTS:
 
-```
+```sql
 -- Clientes que tienen pedidos con productos caros (>200)
 SELECT c.nombre, c.ciudad
 FROM clientes c
@@ -256,7 +256,7 @@ WHERE EXISTS (
 
 El objetivo de esta consulta es encontrar todos los clientes que hayan comprado al menos un producto cuyo precio_unitario sea mayor a 200.
 
-```
+```sql
 SELECT c.nombre, c.ciudad
 FROM clientes c
 ```
@@ -267,7 +267,7 @@ Esto mostrará lo siguiente:
 
 Ambos provenientes de la tabla ``clientes`` alias c.
 
-```
+```sql
 WHERE EXISTS (
     ...
 ```
@@ -279,7 +279,7 @@ Se debe cumplir la condición del ``WHERE``. En este caso ``EXISTS`` devuelve "T
 
 Es por esto que la subconsulta interna usa ``SELECT 1``, el 1 es irrelevante.-
 
-```
+```sql
 SELECT 1
 FROM pedidos p
 JOIN detalle_pedidos dp ON p.id = dp.pedido_id
@@ -305,7 +305,7 @@ Finalmente, acá se puede observar que Ana es la única que aparece con su respe
 
 Si quisieramos listar a los clientes con sus respectivos pedidos, podemos hacer la siguiente consulta:
 
-```
+```sql
 SELECT c.nombre, c.ciudad, prod.nombre AS producto, dp.precio_unitario
 FROM clientes c
 JOIN pedidos p ON c.id = p.cliente_id

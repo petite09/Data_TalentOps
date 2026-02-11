@@ -2,7 +2,7 @@
 
 ## Configurar datos de ejemplo:
 
-```
+```sql
 -- Crear y poblar tabla de productos
 CREATE TABLE productos (
     id INTEGER PRIMARY KEY,
@@ -33,14 +33,14 @@ Para verificar el contenido de la tabla creada con los registros ingresados se u
 
 A continuación, se presentan las consultas realizadas con la evidencia respectiva de que cada consulta devuelve los resultados esperados según las condiciones especificadas.
 
-```
+```sql
 -- Seleccionar productos con precio > 100
 SELECT nombre, precio FROM productos WHERE precio > 100;
 ```
 
 ![sqlite10](IMG-P2/sqlite10.PNG)
 
-```
+```sql
 -- Productos de categoría 'Electrónica' ordenados por precio descendente
 SELECT nombre, precio, categoria FROM productos
 WHERE categoria = 'Electrónica'
@@ -49,7 +49,7 @@ ORDER BY precio DESC;
 
 ![sqlite11](IMG-P2/sqlite11.PNG)
 
-```
+```sql
 -- Productos con stock entre 10 y 40, ordenados por stock ascendente
 SELECT nombre, stock, precio FROM productos
 WHERE stock BETWEEN 10 AND 40
@@ -58,7 +58,7 @@ ORDER BY stock ASC;
 
 ![sqlite12](IMG-P2/sqlite12.PNG)
 
-```
+```sql
 -- Nombres que contienen 'a' ordenados alfabéticamente
 SELECT nombre, precio FROM productos
 WHERE nombre LIKE '%a%'
@@ -71,7 +71,7 @@ ORDER BY nombre ASC;
 
 1. Cambiar condiciones WHERE:
 
-    ```
+    ```sql
     -- Productos cuyo precio sea menor a 100, mostrando solo nombre y precio
     SELECT nombre, precio FROM productos
     WHERE precio < 100;
@@ -79,7 +79,7 @@ ORDER BY nombre ASC;
 
     ![sqlite14](IMG-P2/sqlite14.PNG)
 
-    ```
+    ```sql
     -- Productos cuya categoría no sea 'Accesorios', mostrando nombre y categoría
     SELECT nombre, categoria FROM productos
     WHERE categoria <> 'Accesorios';
@@ -87,7 +87,7 @@ ORDER BY nombre ASC;
 
     ![sqlite15](IMG-P2/sqlite15.PNG)
 
-    ```
+    ```sql
     -- Productos cuyo stock esté fuera del rango 20-40 (menor que 20 o mayor que 40)
     SELECT * FROM productos
     WHERE stock < 20 OR stock > 40;
@@ -98,7 +98,7 @@ ORDER BY nombre ASC;
 
 2. Probar diferentes columnas en ORDER BY
 
-    ```
+    ```sql
     -- Listar todos los productos ordenados por nombre en orden descendente
     SELECT * FROM productos
     ORDER BY nombre DESC;
@@ -106,7 +106,7 @@ ORDER BY nombre ASC;
 
     ![sqlite17](IMG-P2/sqlite17.PNG)
 
-    ```
+    ```sql
     -- Mostrar todos los productos ordenados por stock de mayor a menor
     SELECT * FROM productos
     ORDER BY stock DESC;
@@ -114,7 +114,7 @@ ORDER BY nombre ASC;
 
     ![sqlite18](IMG-P2/sqlite18.PNG)
 
-    ```
+    ```sql
     -- Listar productos ordenados primero por categoría ascendente, y dentro de cada categoría por precio ascendente
     SELECT * FROM productos
     ORDER BY categoria ASC, precio ASC;
@@ -124,7 +124,7 @@ ORDER BY nombre ASC;
 
 3. Cominar múltiples condiciones con AND/OR
 
-    ```
+    ```sql
     -- Seleccionar productos de la categoría 'Accesorios' cuyo precio sea mayor a 50
     SELECT * from productos
     WHERE categoria = 'Accesorios' AND precio > 50;
@@ -132,14 +132,14 @@ ORDER BY nombre ASC;
 
     ![sqlite20](IMG-P2/sqlite20.PNG)
 
-    ```
+    ```sql
     -- Listar productos que sean de la categoría 'Electrónica' o que tengan un precio mayor a 150.
     SELECT * FROM productos
     WHERE categoria = 'Electrónica' OR precio > 150;
     ```
     ![sqlite21](IMG-P2/sqlite21.PNG)
 
-    ```
+    ```sql
     -- Buscar productos cuyo nombre contenga la letra "o" y cuyo stock sea mayor a 20.
     SELECT * FROM productos
     WHERE nombre LIKE '%o%' AND stock > 20;

@@ -12,7 +12,7 @@ En este caso se trabajó con los ejemplos de tablas de los días anteriores.
 
 ## Crear tabla de detalles de pedidos:
 
-```
+```sql
 -- Tabla de detalles de pedidos
 CREATE TABLE detalle_pedidos (
     id INTEGER PRIMARY KEY,
@@ -53,7 +53,7 @@ GROUP BY producto_id;
 En este caso se observan 3 columnas: ``producto_id``, ``total_vendido`` e ``ingresos_totales``. Donde ``total_vendido`` e ``ingresos_totales`` contienen la función agregada SUM().
 El resultado de la consulta también muestra 5 registros en total, correspondiente a la cantidad de productos.
 
-```
+```sql
 -- Estadísticas por pedido
 SELECT pedido_id, COUNT(*) as items_diferentes, SUM(cantidad) as cantidad_total, AVG(precio_unitario) as precio_promedio
 FROM detalle_pedidos
@@ -78,7 +78,7 @@ Y finalmente esta consulta entrega 3 registros que corresponden a la cantidad de
 
 ## Consultas con HAVING:
 
-```
+```sql
 -- Productos con más de 1 unidad vendida total
 SELECT producto_id, SUM(cantidad) as total_vendido
 FROM detalle_pedidos
@@ -97,7 +97,7 @@ El ``HAVING`` nos permite filtrar resultados después de la agregación. En este
 
 El producto id = 2 corresponde al Mouse Logitech, que se vendió más de una unidad (2 unidades).
 
-```
+```sql
 -- Pedidos con valor total > 150
 SELECT pedido_id, SUM(cantidad * precio_unitario) as valor_total
 FROM detalle_pedidos
@@ -114,7 +114,7 @@ Luego de agrupar por ``pedido_id``, el ``HAVING`` filtra según la condición en
 
 ## Análisis combinado con joins:
 
-```
+```sql
 -- Ventas por ciudad usando JOIN + GROUP BY
 SELECT c.ciudad, COUNT(p.id) as num_pedidos, SUM(dp.cantidad * dp.precio_unitario) as ingresos_ciudad
 FROM clientes c

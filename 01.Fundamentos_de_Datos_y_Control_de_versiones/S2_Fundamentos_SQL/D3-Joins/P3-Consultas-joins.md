@@ -2,7 +2,7 @@
 
 ## Crear esquema relacional completo:
 
-```
+```sql
 -- Tabla de clientes
 CREATE TABLE clientes (
     id INTEGER PRIMARY KEY,
@@ -45,7 +45,8 @@ Con la consulta ``SELECT * FROM + 'nombre tabla'`` podemos ver todos los registr
 ## Consultas con diferentes tipos de joins:
 
 ### CASO 1
-```
+
+```sql
 -- INNER JOIN: Solo clientes con pedidos
 SELECT c.nombre, p.fecha_pedido, p.total
 FROM clientes c
@@ -70,7 +71,7 @@ El ``INNER JOIN`` trae solo las filas donde sí existe coincidencia entre ambas 
 
 ### CASO 2
 
-```
+```sql
 -- LEFT JOIN: Todos los clientes, con pedidos si existen
 SELECT c.nombre, COUNT(p.id) as num_pedidos, SUM(p.total) as total_compras
 FROM clientes c
@@ -95,7 +96,7 @@ El ``ON c.id = p.cliente_id`` nuevamente es la regla de emparejamiento.
 
 En este caso, en el SELECT tenemos: 
 
-```
+```sql
 SELECT c.nombre, COUNT(p.id), SUM(p.total)
 ```
 Se están usando funciones agregadas ``COUNT()`` y ``SUM()``. Al agrupar, SQL obliga a decir qué columnas NO agregadas quieres mantener tal cual y esas deben ir en el ``GROUP BY``.
@@ -107,7 +108,7 @@ Con esto finalmente podemos ver que:
 
 ### CASO 3
 
-```
+```sql
 -- Clientes de Madrid con sus pedidos
 SELECT c.nombre, c.ciudad, p.fecha_pedido, p.total
 FROM clientes c

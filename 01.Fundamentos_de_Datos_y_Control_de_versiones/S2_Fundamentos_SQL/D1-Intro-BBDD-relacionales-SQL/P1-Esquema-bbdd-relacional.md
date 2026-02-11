@@ -10,7 +10,7 @@ sqlite3 .open tienda_ejemplo.db
 
 ## Crear Esquema Básico:
 
-```
+```sql
 -- Crear tabla de clientes
 CREATE TABLE clientes (
     id INTEGER PRIMARY KEY,
@@ -73,6 +73,7 @@ PRAGMA table_info(clientes);
 ![pragma_clientes](IMG-P1/sqlite05.PNG)
 
 En este caso, al usar ``PRAGMA table_info`` la primera columna indica el índice interno de la columna:
+
 ```
 id → cid = 0
 nombre → cid = 1
@@ -84,7 +85,8 @@ La segunda columna indica el nombre de la columna.
 La tercera columna el tipo de dato.
 
 La cuarta columna indica si la columna acepta o no valores NULL:
-```
+
+```sql
 1 = NO permite NULL (NOT NULL)
 0 = sí permite NULL
 ```
@@ -99,7 +101,7 @@ Por lo tanto, al ver la info de la tabla clientes se observa que la columna ``id
 
 Se aprovechó de explorar la estructura de las otras tablas: productos y pedidos:
 
-```
+```sql
 .schema productos
 PRAGMA table_info(productos);
 
