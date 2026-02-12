@@ -5,8 +5,9 @@ Este repositorio recopila las evidencias, ejercicios prácticos y proyectos desa
 
 Se aplicaron conceptos de análisis, procesamiento y orquestación de datos mediante ejercicios prácticos, integrando herramientas reales del ecosistema Data.
 
-## 📁 Estructura del repositorio
+------------------------------------------------------------------------
 
+## 📁 Estructura del repositorio
 
 Los contenidos del curso se dividen en tres grandes módulos:
 - 📁 [Fundamentos de Datos y Control de Versiones](https://github.com/petite09/Data_TalentOps/tree/main/01.Fundamentos_de_Datos_y_Control_de_versiones)
@@ -22,12 +23,16 @@ Cada ejercicio incluye:
 - Reflexiones y recomendaciones
 - Evidencia de ejecución (pantallazos)
 
+------------------------------------------------------------------------
+
 ## 🎯 Objetivo del repositorio
 
 - Aplicar conceptos de análisis e ingeniería de datos en ejercicios prácticos.
 - Desarrollar pensamiento analítico y estructuración de pipelines.
 - Familiarizarme con herramientas reales del ecosistema Data.
 - Construir un portafolio técnico.
+
+------------------------------------------------------------------------
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -56,6 +61,7 @@ Cada ejercicio incluye:
 - Statsmodels
 - Openpyxl
 
+------------------------------------------------------------------------
 
 ## 🔁 Futuras Mejoras
 
@@ -66,10 +72,10 @@ Cada ejercicio incluye:
 - Agregar comentarios en el código para que otros puedan seguir el flujo de trabajo más fácilmente.
 - Mejorar estructura modular del código.
 
-
 >[!NOTE]
 > Durante la ruta de aprendizaje, los ejercicios realizados se entregaron como evidencia en un *único* archivo Markdown por semana, por lo que los bloques de código y pantallazos se integraron en un solo documento. En entornos profesionales, cada script debería estructurarse como archivo independiente dentro del repositorio. 
 
+------------------------------------------------------------------------
 
 ## 📑 Lecciones aprendidas
 
@@ -83,11 +89,15 @@ Cada ejercicio incluye:
 - Incorporación de tests unitarios en ejercicios de procesamiento de datos.
 - La importancia de integrar herramientas de automatización y CI/CD en futuros proyectos.
 
+------------------------------------------------------------------------
+
 ## ✨ Agradecimientos
 
 El acceso a esta ruta de aprendizaje fue gracias a la Beca TalentOps de Kranio en alianza con Talento Digital para Chile. Fui seleccionada para una de las 100 becas destinadas a egresados/as de Talento Digital el 2025.
 
 Agradezco profundamente la oportunidad de fortalecer mis competencias técnicas en análisis e ingeniería de datos 😊✨
+
+------------------------------------------------------------------------
 
 ## 👩‍💻 Sobre mí
 
@@ -95,6 +105,8 @@ Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Anál
 
 >[!NOTE]
 > Este es mi primer repositorio estructurado con ejercicios técnicos aplicados.
+
+------------------------------------------------------------------------
 
 ## 🚀 Nota Final 
 
