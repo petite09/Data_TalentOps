@@ -5,14 +5,6 @@ Este repositorio recopila las evidencias, ejercicios prácticos y proyectos desa
 
 Se aplicaron conceptos de análisis, procesamiento y orquestación de datos mediante ejercicios prácticos, integrando herramientas reales del ecosistema Data.
 
-
-## 👩‍💻 Sobre mí
-
-Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Análisis e Ingeniería de Datos, con interés en automatización y arquitectura de datos.
-
->[!NOTE]
-> Este es mi primer repositorio estructurado con ejercicios técnicos aplicados.
-
 ## 📁 Estructura del repositorio
 
 
@@ -39,17 +31,18 @@ Cada ejercicio incluye:
 
 ## 🛠️ Tecnologías utilizadas
 
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=apache-airflow&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+
+- Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" style="vertical-align: middle;"/>
+- GitHub <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" style="vertical-align: middle;"/>
+- Python <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20" style="vertical-align: middle;"/>
+- SQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20" style="vertical-align: middle;"/>
+- Apache Airflow <img src="https://cdn.simpleicons.org/apacheairflow/017CEE" width="20" style="vertical-align: middle;"/>
+- GitHub Actions <img src="https://cdn.simpleicons.org/githubactions/2088FF" width="20" style="vertical-align: middle;"/>
+- PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" style="vertical-align: middle;"/>
+- SQLite <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" width="20" style="vertical-align: middle;"/>
 
 
-### Librerías principales:
+### 📚 Librerías principales:
 - Pandas
 - NumPy
 - SciPy
@@ -62,7 +55,6 @@ Cada ejercicio incluye:
 - scikit-learn
 - Statsmodels
 - Openpyxl
-
 
 
 ## 🔁 Futuras Mejoras
@@ -97,6 +89,12 @@ El acceso a esta ruta de aprendizaje fue gracias a la Beca TalentOps de Kranio e
 
 Agradezco profundamente la oportunidad de fortalecer mis competencias técnicas en análisis e ingeniería de datos 😊✨
 
+## 👩‍💻 Sobre mí
+
+Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Análisis e Ingeniería de Datos, con interés en automatización y arquitectura de datos.
+
+>[!NOTE]
+> Este es mi primer repositorio estructurado con ejercicios técnicos aplicados.
 
 ## 🚀 Nota Final 
 
