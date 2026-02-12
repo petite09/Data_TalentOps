@@ -5,7 +5,12 @@ Este repositorio recopila las evidencias, ejercicios prácticos y proyectos desa
 
 Se aplicaron conceptos de análisis, procesamiento y orquestación de datos mediante ejercicios prácticos, integrando herramientas reales del ecosistema Data.
 
-------------------------------------------------------------------------
+## 🎯 Objetivo del repositorio
+
+- Aplicar conceptos de análisis e ingeniería de datos en ejercicios prácticos.
+- Desarrollar pensamiento analítico y estructuración de pipelines.
+- Familiarizarme con herramientas reales del ecosistema Data.
+- Construir un portafolio técnico.
 
 ## 📁 Estructura del repositorio
 
@@ -23,16 +28,6 @@ Cada ejercicio incluye:
 - Reflexiones y recomendaciones
 - Evidencia de ejecución (pantallazos)
 
-------------------------------------------------------------------------
-
-## 🎯 Objetivo del repositorio
-
-- Aplicar conceptos de análisis e ingeniería de datos en ejercicios prácticos.
-- Desarrollar pensamiento analítico y estructuración de pipelines.
-- Familiarizarme con herramientas reales del ecosistema Data.
-- Construir un portafolio técnico.
-
-------------------------------------------------------------------------
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -61,7 +56,6 @@ Cada ejercicio incluye:
 - Statsmodels
 - Openpyxl
 
-------------------------------------------------------------------------
 
 ## 🔁 Futuras Mejoras
 
@@ -75,7 +69,6 @@ Cada ejercicio incluye:
 >[!NOTE]
 > Durante la ruta de aprendizaje, los ejercicios realizados se entregaron como evidencia en un *único* archivo Markdown por semana, por lo que los bloques de código y pantallazos se integraron en un solo documento. En entornos profesionales, cada script debería estructurarse como archivo independiente dentro del repositorio. 
 
-------------------------------------------------------------------------
 
 ## 📑 Lecciones aprendidas
 
@@ -89,7 +82,6 @@ Cada ejercicio incluye:
 - Incorporación de tests unitarios en ejercicios de procesamiento de datos.
 - La importancia de integrar herramientas de automatización y CI/CD en futuros proyectos.
 
-------------------------------------------------------------------------
 
 ## ✨ Agradecimientos
 
@@ -97,7 +89,6 @@ El acceso a esta ruta de aprendizaje fue gracias a la Beca TalentOps de Kranio e
 
 Agradezco profundamente la oportunidad de fortalecer mis competencias técnicas en análisis e ingeniería de datos 😊✨
 
-------------------------------------------------------------------------
 
 ## 👩‍💻 Sobre mí
 
@@ -106,7 +97,6 @@ Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Anál
 >[!NOTE]
 > Este es mi primer repositorio estructurado con ejercicios técnicos aplicados.
 
-------------------------------------------------------------------------
 
 ## 🚀 Nota Final 
 
