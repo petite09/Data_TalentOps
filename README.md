@@ -35,7 +35,7 @@ Cada ejercicio incluye:
 - Git <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="20" style="vertical-align: middle;"/>
 - GitHub <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" style="vertical-align: middle;"/>
 - Python <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20" style="vertical-align: middle;"/>
-- SQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20" style="vertical-align: middle;"/>
+- SQL <img src="https://img.icons8.com/ios-filled/50/000000/database.png" width="18" style="vertical-align: middle;"/>
 - Apache Airflow <img src="https://cdn.simpleicons.org/apacheairflow/017CEE" width="20" style="vertical-align: middle;"/>
 - GitHub Actions <img src="https://cdn.simpleicons.org/githubactions/2088FF" width="20" style="vertical-align: middle;"/>
 - PostgreSQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20" style="vertical-align: middle;"/>
