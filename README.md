@@ -43,18 +43,12 @@ Cada ejercicio incluye:
 
 
 ### 📚 Librerías principales:
-- Pandas
-- NumPy
-- SciPy
-- Missingno
-- Seaborn
-- Matplotlib
-- Plotly
-- PyTest
-- PyArrow
-- scikit-learn
-- Statsmodels
-- Openpyxl
+
+
+- **Análisis, Manipulación y Procesamiento de Datos**: Pandas, NumPy, PyArrow
+- **Análisis Estadístico y Ciencia de datos**: Statsmodels, scikit-learn, SciPy
+- **Visualización de Datos**: Matplotlib, Seaborn, Plotly, Missingno
+- **Calidad y Testing**: PyTest
 
 
 ## 🔁 Futuras Mejoras
@@ -72,15 +66,23 @@ Cada ejercicio incluye:
 
 ## 📑 Lecciones aprendidas
 
-- La importancia de la documentación clara en proyectos técnicos.
-- Cómo estructurar pipelines de datos de forma ordenada y escalable.
-- Uso práctico de Airflow para orquestación de tareas.
-- Manejo de errores y debugging.
-- La importancia de los principios visuales para comunicar insights claramente.- Buenas prácticas en control de versiones con Git.
-- La diferencia entre un script simple y una arquitectura de datos estructurada.
-- La importancia de estructurar repositorios separando scripts, documentación y evidencia. En futuros proyectos aplicaré esta organización desde el inicio.
-- Incorporación de tests unitarios en ejercicios de procesamiento de datos.
-- La importancia de integrar herramientas de automatización y CI/CD en futuros proyectos.
+- **Documentación y organización**: 
+    - La importancia de la documentación clara en proyectos técnicos.
+    - Organizar repositorios separando scripts, documentación y evidencia.
+    - Diferenciar entre script aislado y una arquitectura de datos estructurada.
+    - Buenas prácticas en control de versiones con Git.
+
+- **Ingeniería y Arquitectura de Datos**
+    - Diseñar pipelines de datos de forma ordenada y escalable.
+    - Uso práctico de Airflow para orquestación de tareas.
+
+- **Calidad del Software:**
+    - Implementación de tests unitarios para asegurar calidad.
+    - Manejo de errores y debugging.
+    - La importancia de integrar herramientas de automatización y CI/CD en futuros proyectos.
+
+- **Comunicación de datos**:
+    - Uso de principios visuales y storytelling para comunicar insights de forma clara y efectiva.
 
 
 ## ✨ Agradecimientos
@@ -92,7 +94,7 @@ Agradezco profundamente la oportunidad de fortalecer mis competencias técnicas 
 
 ## 👩‍💻 Sobre mí
 
-Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Análisis e Ingeniería de Datos, con interés en automatización y arquitectura de datos.
+Soy Ingeniera en Biotecnología Molecular en transición hacia el área de Análisis e Ingeniería de Datos, con interés en automatización y arquitectura escalable de datos.
 
 >[!NOTE]
 > Este es mi primer repositorio estructurado con ejercicios técnicos aplicados.
