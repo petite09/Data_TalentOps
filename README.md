@@ -25,7 +25,7 @@ Cada ejercicio incluye:
 
 - Implementación técnica
 - Aplicación de conceptos teóricos
-- Reflexiones y recomendaciones
+- Reflexiones, apuntes y recomendaciones
 - Evidencia de ejecución (pantallazos)
 
 
